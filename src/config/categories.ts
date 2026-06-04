@@ -58,6 +58,7 @@ import {
   Package,
   type LucideIcon,
 } from "lucide-react";
+import { z } from "zod";
 
 export const ICONS = {
   Sparkles,
@@ -77,17 +78,91 @@ export const ICONS = {
 
 export type IconName = keyof typeof ICONS;
 
-export type Category = {
-  id: string;
-  name: string;
-  description: string;
-  cta: string;
-  link: string;
-  icon: IconName;
-  order: number;
-  featured?: boolean;
-  showInHighlights?: boolean;
-};
+/* ============================================================
+ *  VALIDAÇÃO DE LINKS
+ * ============================================================
+ *  Aceitamos apenas:
+ *   - O placeholder "COLOCAR_LINK_AQUI" (link ainda não definido)
+ *   - URLs https das hosts oficiais da Shopee:
+ *       shopee.com.br, s.shopee.com.br, shp.ee
+ * ============================================================ */
+export const LINK_PLACEHOLDER = "COLOCAR_LINK_AQUI";
+
+export const ALLOWED_LINK_HOSTS = [
+  "shopee.com.br",
+  "s.shopee.com.br",
+  "shp.ee",
+] as const;
+
+export type LinkValidation =
+  | { status: "placeholder"; message: string }
+  | { status: "valid"; url: string }
+  | { status: "invalid"; message: string };
+
+export function validateLink(raw: string): LinkValidation {
+  const value = (raw ?? "").trim();
+  if (!value || value === LINK_PLACEHOLDER) {
+    return { status: "placeholder", message: "Link ainda não definido" };
+  }
+  let parsed: URL;
+  try {
+    parsed = new URL(value);
+  } catch {
+    return { status: "invalid", message: "URL malformada" };
+  }
+  if (parsed.protocol !== "https:") {
+    return { status: "invalid", message: "Use HTTPS" };
+  }
+  const host = parsed.hostname.toLowerCase().replace(/^www\./, "");
+  const ok = ALLOWED_LINK_HOSTS.some(
+    (h) => host === h || host.endsWith("." + h),
+  );
+  if (!ok) {
+    return {
+      status: "invalid",
+      message: `Domínio não permitido (${host}). Use Shopee.`,
+    };
+  }
+  return { status: "valid", url: parsed.toString() };
+}
+
+/** URL segura para usar em href: "#" quando inválida ou placeholder. */
+export function safeHref(raw: string): string {
+  const v = validateLink(raw);
+  return v.status === "valid" ? v.url : "#";
+}
+
+const linkSchema = z
+  .string()
+  .trim()
+  .max(2048, "Link muito longo")
+  .refine((v) => {
+    const r = validateLink(v);
+    return r.status === "valid" || r.status === "placeholder";
+  }, "Link inválido — use uma URL https da Shopee ou o placeholder COLOCAR_LINK_AQUI");
+
+const iconSchema = z.enum(Object.keys(ICONS) as [IconName, ...IconName[]], {
+  message: "Ícone inválido",
+});
+
+export const categorySchema = z.object({
+  id: z
+    .string()
+    .trim()
+    .min(1, "id obrigatório")
+    .max(50, "id muito longo")
+    .regex(/^[a-z0-9-]+$/, "id deve ser minúsculo, sem espaços (use - para separar)"),
+  name: z.string().trim().min(1, "Nome obrigatório").max(60, "Nome muito longo"),
+  description: z.string().trim().min(1, "Descrição obrigatória").max(200, "Descrição muito longa"),
+  cta: z.string().trim().min(1, "CTA obrigatório").max(40, "CTA muito longo"),
+  link: linkSchema,
+  icon: iconSchema,
+  order: z.number().int().min(1).max(999),
+  featured: z.boolean().optional(),
+  showInHighlights: z.boolean().optional(),
+});
+
+export type Category = z.infer<typeof categorySchema>;
 
 /* ============================================================
  *  LINKS GLOBAIS (botões principais da página)

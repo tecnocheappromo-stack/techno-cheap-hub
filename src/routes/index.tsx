@@ -1,14 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  Tv,
-  Headphones,
-  Tablet,
-  Smartphone,
-  Home,
-  Microwave,
-  Tag,
   Flame,
-  Projector,
   Sparkles,
   ShoppingBag,
   ArrowRight,
@@ -21,7 +13,15 @@ import {
   Users,
   TrendingUp,
   Package,
+  type LucideIcon,
 } from "lucide-react";
+import {
+  ICONS,
+  SITE_LINKS,
+  getCategories,
+  getHighlights,
+  type Category,
+} from "@/config/categories";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,108 +45,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const MAIN_VIDEO_LINK = "COLOCAR_LINK_AQUI";
-const FULL_SHOP_LINK = "COLOCAR_LINK_AQUI";
-
-const categories = [
-  {
-    icon: Sparkles,
-    name: "Produtos dos vídeos",
-    description: "Veja os produtos que apareceram nos vídeos recentes do TikTok.",
-    cta: "Ver produtos dos vídeos",
-    link: "COLOCAR_LINK_AQUI",
-    featured: true,
-  },
-  {
-    icon: Projector,
-    name: "Projetores",
-    description: "Mini projetores e acessórios para assistir filmes, séries e futebol.",
-    cta: "Ver projetores",
-    link: "COLOCAR_LINK_AQUI",
-  },
-  {
-    icon: Headphones,
-    name: "Fones Bluetooth",
-    description: "Fones sem fio, modelos custo-benefício e achadinhos do dia a dia.",
-    cta: "Ver fones",
-    link: "COLOCAR_LINK_AQUI",
-  },
-  {
-    icon: Tablet,
-    name: "Tablets",
-    description: "Tablets para estudo, vídeos, trabalho e uso diário em oferta.",
-    cta: "Ver tablets",
-    link: "COLOCAR_LINK_AQUI",
-  },
-  {
-    icon: Smartphone,
-    name: "Celulares",
-    description: "Smartphones, capas, carregadores e acessórios úteis para celular.",
-    cta: "Ver celulares",
-    link: "COLOCAR_LINK_AQUI",
-  },
-  {
-    icon: Tv,
-    name: "Smart TVs",
-    description: "Ofertas em TVs e telas para entretenimento em casa.",
-    cta: "Ver Smart TVs",
-    link: "COLOCAR_LINK_AQUI",
-  },
-  {
-    icon: Home,
-    name: "Casa",
-    description: "Itens para deixar sua casa mais prática, bonita e confortável.",
-    cta: "Ver casa",
-    link: "COLOCAR_LINK_AQUI",
-  },
-  {
-    icon: Microwave,
-    name: "Eletros",
-    description: "Fogões, eletrodomésticos e produtos úteis para cozinha e casa.",
-    cta: "Ver eletros",
-    link: "COLOCAR_LINK_AQUI",
-  },
-  {
-    icon: Tag,
-    name: "Até R$100",
-    description: "Achadinhos baratos para comprar sem pensar muito no preço.",
-    cta: "Ver ofertas",
-    link: "COLOCAR_LINK_AQUI",
-  },
-  {
-    icon: Flame,
-    name: "Mais vendidos",
-    description: "Produtos com maior procura e maiores chances de promoção.",
-    cta: "Ver mais vendidos",
-    link: "COLOCAR_LINK_AQUI",
-  },
-];
-
-const highlights = [
-  {
-    icon: Projector,
-    title: "Projetores em alta",
-    text: "Transforme qualquer parede em uma tela para filmes, séries e futebol.",
-    cta: "Ver projetores",
-    link: "COLOCAR_LINK_AQUI",
-  },
-  {
-    icon: Headphones,
-    title: "Fones Bluetooth",
-    text: "Achadinhos para usar no trabalho, academia, estudos e dia a dia.",
-    cta: "Ver fones",
-    link: "COLOCAR_LINK_AQUI",
-  },
-  {
-    icon: Flame,
-    title: "Viral no TikTok",
-    text: "Itens que bombaram nos vídeos e podem esgotar a qualquer momento.",
-    cta: "Ver produtos virais",
-    link: "COLOCAR_LINK_AQUI",
-  },
-];
-
-function TrustBadge({ icon: Icon, text }: { icon: typeof Star; text: string }) {
+function TrustBadge({ icon: Icon, text }: { icon: LucideIcon; text: string }) {
   return (
     <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-white/90 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/15">
       <Icon size={13} className="text-shopee" />
@@ -155,23 +54,16 @@ function TrustBadge({ icon: Icon, text }: { icon: typeof Star; text: string }) {
   );
 }
 
-function CategoryCard({
-  icon: Icon,
-  name,
-  description,
-  cta,
-  link,
-  featured,
-}: (typeof categories)[0]) {
+function CategoryCard({ category }: { category: Category }) {
+  const Icon = ICONS[category.icon];
+  const { name, description, cta, link, featured } = category;
   return (
     <a
       href={link}
       target="_blank"
       rel="noopener noreferrer"
       className={`group relative flex flex-col p-5 sm:p-6 rounded-3xl bg-card border transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg ${
-        featured
-          ? "border-shopee/50 ring-1 ring-shopee/20 shadow-shopee/10"
-          : "border-border"
+        featured ? "border-shopee/50 ring-1 ring-shopee/20 shadow-shopee/10" : "border-border"
       }`}
       style={{ boxShadow: featured ? "var(--shadow-card-featured)" : "var(--shadow-card)" }}
     >
@@ -183,10 +75,10 @@ function CategoryCard({
       <div
         className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
         style={{
-          background: featured
-            ? "var(--gradient-shopee)"
-            : "var(--gradient-icon)",
-          boxShadow: featured ? "0 8px 24px -8px oklch(0.65 0.22 35 / 0.5)" : "0 6px 20px -6px oklch(0.3 0.12 255 / 0.35)",
+          background: featured ? "var(--gradient-shopee)" : "var(--gradient-icon)",
+          boxShadow: featured
+            ? "0 8px 24px -8px oklch(0.65 0.22 35 / 0.5)"
+            : "0 6px 20px -6px oklch(0.3 0.12 255 / 0.35)",
         }}
       >
         <Icon size={24} className="text-white" />
@@ -201,13 +93,8 @@ function CategoryCard({
   );
 }
 
-function HighlightCard({
-  icon: Icon,
-  title,
-  text,
-  cta,
-  link,
-}: (typeof highlights)[0]) {
+function HighlightCard({ category }: { category: Category }) {
+  const Icon = ICONS[category.icon];
   return (
     <div
       className="group flex flex-col p-6 rounded-3xl bg-card border border-border transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
@@ -215,20 +102,25 @@ function HighlightCard({
     >
       <div
         className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
-        style={{ background: "var(--gradient-shopee)", boxShadow: "0 8px 24px -8px oklch(0.65 0.22 35 / 0.45)" }}
+        style={{
+          background: "var(--gradient-shopee)",
+          boxShadow: "0 8px 24px -8px oklch(0.65 0.22 35 / 0.45)",
+        }}
       >
         <Icon size={26} className="text-white" />
       </div>
-      <h3 className="font-black text-xl text-foreground">{title}</h3>
-      <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">{text}</p>
+      <h3 className="font-black text-xl text-foreground">{category.name}</h3>
+      <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">
+        {category.description}
+      </p>
       <a
-        href={link}
+        href={category.link}
         target="_blank"
         rel="noopener noreferrer"
         className="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-2xl font-bold text-sm text-white transition-all hover:scale-[1.02] active:scale-[0.98]"
         style={{ background: "var(--gradient-shopee)", boxShadow: "var(--shadow-glow-sm)" }}
       >
-        {cta}
+        {category.cta}
         <ArrowRight size={16} />
       </a>
     </div>
@@ -240,13 +132,16 @@ function StepCard({
   title,
   text,
 }: {
-  icon: typeof Star;
+  icon: LucideIcon;
   title: string;
   text: string;
 }) {
   return (
     <div className="flex gap-4 p-5 rounded-2xl bg-card border border-border">
-      <div className="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center" style={{ background: "var(--gradient-icon)" }}>
+      <div
+        className="w-12 h-12 shrink-0 rounded-xl flex items-center justify-center"
+        style={{ background: "var(--gradient-icon)" }}
+      >
         <Icon size={20} className="text-white" />
       </div>
       <div>
@@ -258,6 +153,9 @@ function StepCard({
 }
 
 function Index() {
+  const categories = getCategories();
+  const highlights = getHighlights();
+
   return (
     <div className="min-h-screen bg-background pb-28 md:pb-0">
       {/* HERO */}
@@ -303,20 +201,17 @@ function Index() {
           </h1>
 
           <p className="mt-5 text-base sm:text-lg text-white/80 max-w-lg mx-auto leading-relaxed">
-            Produtos em oferta direto da Shopee, separados por categoria para você
-            encontrar rápido o que apareceu no TikTok.
+            Produtos em oferta direto da Shopee, separados por categoria para você encontrar rápido
+            o que apareceu no TikTok.
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-4">
             <a
-              href={MAIN_VIDEO_LINK}
+              href={SITE_LINKS.mainVideo}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg text-white transition-all hover:scale-[1.03] active:scale-[0.97]"
-              style={{
-                background: "var(--gradient-shopee)",
-                boxShadow: "var(--shadow-glow-lg)",
-              }}
+              style={{ background: "var(--gradient-shopee)", boxShadow: "var(--shadow-glow-lg)" }}
             >
               <Play size={22} className="fill-white" />
               Ver produto do vídeo
@@ -345,30 +240,32 @@ function Index() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {categories.map((cat) => (
-            <CategoryCard key={cat.name} {...cat} />
+            <CategoryCard key={cat.id} category={cat} />
           ))}
         </div>
       </section>
 
       {/* HIGHLIGHTS */}
-      <section className="bg-secondary/40 py-16 md:py-24 border-y border-border">
-        <div className="max-w-6xl mx-auto px-5">
-          <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-shopee mb-3">
-              <Flame size={14} /> Não perca
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-foreground">
-              Destaques da semana
-            </h2>
-          </div>
+      {highlights.length > 0 && (
+        <section className="bg-secondary/40 py-16 md:py-24 border-y border-border">
+          <div className="max-w-6xl mx-auto px-5">
+            <div className="text-center mb-12">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-shopee mb-3">
+                <Flame size={14} /> Não perca
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-foreground">
+                Destaques da semana
+              </h2>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {highlights.map((h) => (
-              <HighlightCard key={h.title} {...h} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {highlights.map((h) => (
+                <HighlightCard key={h.id} category={h} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* HOW IT WORKS */}
       <section className="max-w-4xl mx-auto px-5 py-16 md:py-24">
@@ -407,9 +304,8 @@ function Index() {
         <div className="mt-8 flex items-start gap-3 p-5 rounded-2xl bg-muted/70 border border-border">
           <CheckCircle2 size={18} className="text-shopee shrink-0 mt-0.5" />
           <p className="text-xs text-muted-foreground leading-relaxed">
-            <strong className="text-foreground">Aviso:</strong> esta página pode conter
-            links de afiliado. Ao comprar por eles, posso receber uma comissão — sem custo
-            extra para você.
+            <strong className="text-foreground">Aviso:</strong> esta página pode conter links de
+            afiliado. Ao comprar por eles, posso receber uma comissão — sem custo extra para você.
           </p>
         </div>
       </section>
@@ -429,17 +325,15 @@ function Index() {
               Não encontrou o que procurava?
             </h2>
             <p className="mt-4 text-white/80 max-w-md mx-auto text-base leading-relaxed">
-              Acesse a vitrine completa da Techno Cheap na Shopee e veja todos os produtos selecionados.
+              Acesse a vitrine completa da Techno Cheap na Shopee e veja todos os produtos
+              selecionados.
             </p>
             <a
-              href={FULL_SHOP_LINK}
+              href={SITE_LINKS.fullShop}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg text-white transition-all hover:scale-[1.03] active:scale-[0.97]"
-              style={{
-                background: "var(--gradient-shopee)",
-                boxShadow: "var(--shadow-glow-lg)",
-              }}
+              style={{ background: "var(--gradient-shopee)", boxShadow: "var(--shadow-glow-lg)" }}
             >
               <ShoppingBag size={22} />
               Ver todos os achadinhos
@@ -472,14 +366,11 @@ function Index() {
       {/* MOBILE STICKY CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden p-4 bg-background/95 backdrop-blur-xl border-t border-border">
         <a
-          href={MAIN_VIDEO_LINK}
+          href={SITE_LINKS.mainVideo}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2.5 w-full px-6 py-4 rounded-2xl font-bold text-base text-white active:scale-[0.97] transition-transform"
-          style={{
-            background: "var(--gradient-shopee)",
-            boxShadow: "var(--shadow-glow-lg)",
-          }}
+          style={{ background: "var(--gradient-shopee)", boxShadow: "var(--shadow-glow-lg)" }}
         >
           <Play size={20} className="fill-white" />
           Ver produto do vídeo

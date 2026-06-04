@@ -401,6 +401,8 @@ function Index() {
           Links de afiliado · Sem custo extra para você
         </p>
       </div>
+
+      <AdminPanel />
     </div>
   );
 }

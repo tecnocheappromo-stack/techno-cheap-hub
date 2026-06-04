@@ -75,7 +75,8 @@ function CategoryCard({ category }: { category: Category }) {
   const { name, description, cta, link, featured } = category;
   return (
     <a
-      href={link}
+      href={safeHref(link)}
+      onClick={guardClick(link)}
       target="_blank"
       rel="noopener noreferrer"
       className={`group relative flex flex-col p-5 sm:p-6 rounded-3xl bg-card border transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg ${

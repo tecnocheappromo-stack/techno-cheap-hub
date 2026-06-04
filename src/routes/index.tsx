@@ -386,7 +386,8 @@ function Index() {
       {/* MOBILE STICKY CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden p-4 bg-background/95 backdrop-blur-xl border-t border-border">
         <a
-          href={SITE_LINKS.mainVideo}
+          href={safeHref(SITE_LINKS.mainVideo)}
+          onClick={guardClick(SITE_LINKS.mainVideo)}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2.5 w-full px-6 py-4 rounded-2xl font-bold text-base text-white active:scale-[0.97] transition-transform"

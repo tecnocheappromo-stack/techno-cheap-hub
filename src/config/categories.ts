@@ -285,3 +285,48 @@ export function getCategories(): Category[] {
 export function getHighlights(): Category[] {
   return getCategories().filter((c) => c.showInHighlights);
 }
+
+export type CategoryIssue = {
+  id: string;
+  field: string;
+  message: string;
+};
+
+/** Valida toda a configuração e retorna uma lista de problemas. */
+export function validateConfig(): CategoryIssue[] {
+  const issues: CategoryIssue[] = [];
+
+  // ids únicos
+  const seen = new Set<string>();
+  for (const c of CATEGORIES) {
+    if (seen.has(c.id)) {
+      issues.push({ id: c.id, field: "id", message: "id duplicado" });
+    }
+    seen.add(c.id);
+  }
+
+  // schema por categoria
+  for (const c of CATEGORIES) {
+    const r = categorySchema.safeParse(c);
+    if (!r.success) {
+      for (const err of r.error.issues) {
+        issues.push({
+          id: c.id,
+          field: err.path.join(".") || "(raiz)",
+          message: err.message,
+        });
+      }
+    }
+  }
+
+  // links globais
+  for (const [key, value] of Object.entries(SITE_LINKS)) {
+    const v = validateLink(value);
+    if (v.status === "invalid") {
+      issues.push({ id: `SITE_LINKS.${key}`, field: "link", message: v.message });
+    }
+  }
+
+  return issues;
+}
+

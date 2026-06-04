@@ -131,7 +131,8 @@ function HighlightCard({ category }: { category: Category }) {
         {category.description}
       </p>
       <a
-        href={category.link}
+        href={safeHref(category.link)}
+        onClick={guardClick(category.link)}
         target="_blank"
         rel="noopener noreferrer"
         className="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-2xl font-bold text-sm text-white transition-all hover:scale-[1.02] active:scale-[0.98]"

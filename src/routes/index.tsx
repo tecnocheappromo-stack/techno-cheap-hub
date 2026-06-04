@@ -26,6 +26,19 @@ import {
 } from "@/config/categories";
 import { AdminPanel } from "@/components/AdminPanel";
 
+import type { MouseEvent } from "react";
+
+function guardClick(raw: string) {
+  return (e: MouseEvent<HTMLAnchorElement>) => {
+    if (validateLink(raw).status !== "valid") {
+      e.preventDefault();
+      if (typeof window !== "undefined") {
+        console.warn("[Techno Cheap] Link inválido ou ainda não configurado:", raw);
+      }
+    }
+  };
+}
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [

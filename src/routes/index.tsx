@@ -20,8 +20,11 @@ import {
   SITE_LINKS,
   getCategories,
   getHighlights,
+  safeHref,
+  validateLink,
   type Category,
 } from "@/config/categories";
+import { AdminPanel } from "@/components/AdminPanel";
 
 export const Route = createFileRoute("/")({
   head: () => ({

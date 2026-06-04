@@ -20,8 +20,24 @@ import {
   SITE_LINKS,
   getCategories,
   getHighlights,
+  safeHref,
+  validateLink,
   type Category,
 } from "@/config/categories";
+import { AdminPanel } from "@/components/AdminPanel";
+
+import type { MouseEvent } from "react";
+
+function guardClick(raw: string) {
+  return (e: MouseEvent<HTMLAnchorElement>) => {
+    if (validateLink(raw).status !== "valid") {
+      e.preventDefault();
+      if (typeof window !== "undefined") {
+        console.warn("[Techno Cheap] Link inválido ou ainda não configurado:", raw);
+      }
+    }
+  };
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -59,7 +75,8 @@ function CategoryCard({ category }: { category: Category }) {
   const { name, description, cta, link, featured } = category;
   return (
     <a
-      href={link}
+      href={safeHref(link)}
+      onClick={guardClick(link)}
       target="_blank"
       rel="noopener noreferrer"
       className={`group relative flex flex-col p-5 sm:p-6 rounded-3xl bg-card border transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg ${
@@ -114,7 +131,8 @@ function HighlightCard({ category }: { category: Category }) {
         {category.description}
       </p>
       <a
-        href={category.link}
+        href={safeHref(category.link)}
+        onClick={guardClick(category.link)}
         target="_blank"
         rel="noopener noreferrer"
         className="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-2xl font-bold text-sm text-white transition-all hover:scale-[1.02] active:scale-[0.98]"
@@ -207,7 +225,8 @@ function Index() {
 
           <div className="mt-8 flex flex-col items-center gap-4">
             <a
-              href={SITE_LINKS.mainVideo}
+              href={safeHref(SITE_LINKS.mainVideo)}
+              onClick={guardClick(SITE_LINKS.mainVideo)}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg text-white transition-all hover:scale-[1.03] active:scale-[0.97]"
@@ -329,7 +348,8 @@ function Index() {
               selecionados.
             </p>
             <a
-              href={SITE_LINKS.fullShop}
+              href={safeHref(SITE_LINKS.fullShop)}
+              onClick={guardClick(SITE_LINKS.fullShop)}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg text-white transition-all hover:scale-[1.03] active:scale-[0.97]"
@@ -366,7 +386,8 @@ function Index() {
       {/* MOBILE STICKY CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden p-4 bg-background/95 backdrop-blur-xl border-t border-border">
         <a
-          href={SITE_LINKS.mainVideo}
+          href={safeHref(SITE_LINKS.mainVideo)}
+          onClick={guardClick(SITE_LINKS.mainVideo)}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2.5 w-full px-6 py-4 rounded-2xl font-bold text-base text-white active:scale-[0.97] transition-transform"
@@ -380,6 +401,8 @@ function Index() {
           Links de afiliado · Sem custo extra para você
         </p>
       </div>
+
+      <AdminPanel />
     </div>
   );
 }

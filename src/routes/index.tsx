@@ -25,6 +25,7 @@ import {
   type Category,
 } from "@/config/categories";
 import { AdminPanel } from "@/components/AdminPanel";
+import { useLinkOverrides } from "@/hooks/use-link-overrides";
 
 import type { MouseEvent } from "react";
 

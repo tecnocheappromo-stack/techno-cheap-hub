@@ -315,12 +315,25 @@ export function validateConfig(): CategoryIssue[] {
           field: err.path.join(".") || "(raiz)",
           message: err.message,
         });
+      }
+    }
+  }
+
+  // links globais
+  for (const [key, value] of Object.entries(SITE_LINKS)) {
+    const v = validateLink(value);
+    if (v.status === "invalid") {
+      issues.push({ id: `SITE_LINKS.${key}`, field: "link", message: v.message });
+    }
+  }
+
+  return issues;
 }
 
 /* ============================================================
  *  OVERRIDES — links editáveis salvos no localStorage
  * ============================================================
- *  As chaves usadas no mapa de overrides são:
+ *  Chaves usadas no mapa de overrides:
  *   - id da categoria (ex: "projetores")
  *   - "SITE_LINKS.mainVideo" e "SITE_LINKS.fullShop" para os globais
  * ============================================================ */
@@ -365,17 +378,26 @@ export function getEffectiveLink(id: string, fallback: string): string {
   return all[id] ?? fallback;
 }
 
-    }
-  }
-
-  // links globais
-  for (const [key, value] of Object.entries(SITE_LINKS)) {
-    const v = validateLink(value);
-    if (v.status === "invalid") {
-      issues.push({ id: `SITE_LINKS.${key}`, field: "link", message: v.message });
-    }
-  }
-
-  return issues;
+/** JSON de configuração atual (categorias + globais, com overrides aplicados). */
+export function buildConfigExport(): string {
+  const overrides = getLinkOverrides();
+  const data = {
+    siteLinks: Object.fromEntries(
+      Object.entries(SITE_LINKS).map(([k, v]) => [k, overrides[`SITE_LINKS.${k}`] ?? v]),
+    ),
+    categories: getCategories().map((c) => ({
+      id: c.id,
+      name: c.name,
+      description: c.description,
+      cta: c.cta,
+      link: overrides[c.id] ?? c.link,
+      icon: c.icon,
+      order: c.order,
+      featured: c.featured ?? false,
+      showInHighlights: c.showInHighlights ?? false,
+    })),
+  };
+  return JSON.stringify(data, null, 2);
 }
+
 

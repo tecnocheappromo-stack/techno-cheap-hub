@@ -172,8 +172,16 @@ function StepCard({
 }
 
 function Index() {
-  const categories = getCategories();
-  const highlights = getHighlights();
+  const overrides = useLinkOverrides();
+  const withOverride = (cat: Category): Category => ({
+    ...cat,
+    link: overrides[cat.id] ?? cat.link,
+  });
+  const categories = getCategories().map(withOverride);
+  const highlights = getHighlights().map(withOverride);
+  const mainVideoLink = overrides["SITE_LINKS.mainVideo"] ?? SITE_LINKS.mainVideo;
+  const fullShopLink = overrides["SITE_LINKS.fullShop"] ?? SITE_LINKS.fullShop;
+
 
   return (
     <div className="min-h-screen bg-background pb-28 md:pb-0">

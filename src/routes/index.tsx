@@ -179,8 +179,8 @@ function Index() {
   });
   const categories = getCategories().map(withOverride);
   const highlights = getHighlights().map(withOverride);
-  const mainVideoLink = overrides["SITE_LINKS.mainVideo"] ?? SITE_LINKS.mainVideo;
-  const fullShopLink = overrides["SITE_LINKS.fullShop"] ?? SITE_LINKS.fullShop;
+  const mainVideoLink = overrides["mainVideoLink"] ?? mainVideoLink;
+  const fullShopLink = overrides["fullShopLink"] ?? fullShopLink;
 
 
   return (
@@ -234,8 +234,8 @@ function Index() {
 
           <div className="mt-8 flex flex-col items-center gap-4">
             <a
-              href={safeHref(SITE_LINKS.mainVideo)}
-              onClick={guardClick(SITE_LINKS.mainVideo)}
+              href={safeHref(mainVideoLink)}
+              onClick={guardClick(mainVideoLink)}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg text-white transition-all hover:scale-[1.03] active:scale-[0.97]"
@@ -357,8 +357,8 @@ function Index() {
               selecionados.
             </p>
             <a
-              href={safeHref(SITE_LINKS.fullShop)}
-              onClick={guardClick(SITE_LINKS.fullShop)}
+              href={safeHref(fullShopLink)}
+              onClick={guardClick(fullShopLink)}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg text-white transition-all hover:scale-[1.03] active:scale-[0.97]"
@@ -395,8 +395,8 @@ function Index() {
       {/* MOBILE STICKY CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden p-4 bg-background/95 backdrop-blur-xl border-t border-border">
         <a
-          href={safeHref(SITE_LINKS.mainVideo)}
-          onClick={guardClick(SITE_LINKS.mainVideo)}
+          href={safeHref(mainVideoLink)}
+          onClick={guardClick(mainVideoLink)}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2.5 w-full px-6 py-4 rounded-2xl font-bold text-base text-white active:scale-[0.97] transition-transform"

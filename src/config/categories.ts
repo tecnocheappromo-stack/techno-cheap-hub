@@ -315,7 +315,56 @@ export function validateConfig(): CategoryIssue[] {
           field: err.path.join(".") || "(raiz)",
           message: err.message,
         });
-      }
+}
+
+/* ============================================================
+ *  OVERRIDES — links editáveis salvos no localStorage
+ * ============================================================
+ *  As chaves usadas no mapa de overrides são:
+ *   - id da categoria (ex: "projetores")
+ *   - "SITE_LINKS.mainVideo" e "SITE_LINKS.fullShop" para os globais
+ * ============================================================ */
+export const LINK_OVERRIDES_STORAGE_KEY = "tc_link_overrides";
+export const LINKS_UPDATED_EVENT = "tc-links-updated";
+
+export type LinkOverrides = Record<string, string>;
+
+export function getLinkOverrides(): LinkOverrides {
+  if (typeof window === "undefined") return {};
+  try {
+    const raw = window.localStorage.getItem(LINK_OVERRIDES_STORAGE_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === "object" ? (parsed as LinkOverrides) : {};
+  } catch {
+    return {};
+  }
+}
+
+function persistOverrides(next: LinkOverrides) {
+  window.localStorage.setItem(LINK_OVERRIDES_STORAGE_KEY, JSON.stringify(next));
+  window.dispatchEvent(new Event(LINKS_UPDATED_EVENT));
+}
+
+export function setLinkOverride(id: string, link: string) {
+  if (typeof window === "undefined") return;
+  const all = getLinkOverrides();
+  all[id] = link;
+  persistOverrides(all);
+}
+
+export function clearLinkOverride(id: string) {
+  if (typeof window === "undefined") return;
+  const all = getLinkOverrides();
+  delete all[id];
+  persistOverrides(all);
+}
+
+export function getEffectiveLink(id: string, fallback: string): string {
+  const all = getLinkOverrides();
+  return all[id] ?? fallback;
+}
+
     }
   }
 

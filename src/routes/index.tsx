@@ -179,8 +179,8 @@ function Index() {
   });
   const categories = getCategories().map(withOverride);
   const highlights = getHighlights().map(withOverride);
-  const mainVideoLink = overrides["mainVideoLink"] ?? mainVideoLink;
-  const fullShopLink = overrides["fullShopLink"] ?? fullShopLink;
+  const mainVideoLink = overrides["SITE_LINKS.mainVideo"] ?? SITE_LINKS.mainVideo;
+  const fullShopLink = overrides["SITE_LINKS.fullShop"] ?? SITE_LINKS.fullShop;
 
 
   return (

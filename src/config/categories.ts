@@ -185,7 +185,7 @@ export const CATEGORIES: Category[] = [
     name: "Produtos dos vídeos",
     description: "Veja os produtos que apareceram nos vídeos recentes do TikTok.",
     cta: "Ver produtos dos vídeos",
-    link: "COLOCAR_LINK_AQUI",
+    link: "https://collshp.com/technocheap/category/3861778?view=storefront",
     icon: "Sparkles",
     order: 1,
     featured: true,

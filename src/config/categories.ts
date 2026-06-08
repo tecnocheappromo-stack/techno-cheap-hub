@@ -170,7 +170,7 @@ export type Category = z.infer<typeof categorySchema>;
  * ============================================================ */
 export const SITE_LINKS = {
   // Botão "Ver produto do vídeo" (hero + rodapé fixo do mobile)
-  mainVideo: "COLOCAR_LINK_AQUI",
+  mainVideo: "https://collshp.com/technocheap/category/3861778?view=storefront",
   // Botão final "Ver todos os achadinhos"
   fullShop: "COLOCAR_LINK_AQUI",
 };

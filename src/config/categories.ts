@@ -256,15 +256,6 @@ export const CATEGORIES: Category[] = [
     order: 8,
   },
   {
-    id: "ate-100",
-    name: "Até R$100",
-    description: "Achadinhos baratos para comprar sem pensar muito no preço.",
-    cta: "Ver ofertas",
-    link: "COLOCAR_LINK_AQUI",
-    icon: "Tag",
-    order: 9,
-  },
-  {
     id: "mais-vendidos",
     name: "Mais vendidos",
     description: "Produtos com maior procura e maiores chances de promoção.",

@@ -368,7 +368,10 @@ function Index() {
             </p>
             <a
               href={safeHref(fullShopLink)}
-              onClick={guardClick(fullShopLink)}
+              onClick={(e) => {
+                guardClick(fullShopLink)(e);
+                trackEvent("click_cta_button", { button_text: "Ver todos os achadinhos" });
+              }}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg text-white transition-all hover:scale-[1.03] active:scale-[0.97]"
@@ -406,7 +409,10 @@ function Index() {
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden p-4 bg-background/95 backdrop-blur-xl border-t border-border">
         <a
           href={safeHref(mainVideoLink)}
-          onClick={guardClick(mainVideoLink)}
+          onClick={(e) => {
+            guardClick(mainVideoLink)(e);
+            trackEvent("click_cta_button", { button_text: "Ver produto do vídeo (sticky)" });
+          }}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2.5 w-full px-6 py-4 rounded-2xl font-bold text-base text-white active:scale-[0.97] transition-transform"

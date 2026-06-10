@@ -242,7 +242,10 @@ function Index() {
           <div className="mt-8 flex flex-col items-center gap-4">
             <a
               href={safeHref(mainVideoLink)}
-              onClick={guardClick(mainVideoLink)}
+              onClick={(e) => {
+                guardClick(mainVideoLink)(e);
+                trackEvent("click_cta_button", { button_text: "Ver produto do vídeo" });
+              }}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg text-white transition-all hover:scale-[1.03] active:scale-[0.97]"

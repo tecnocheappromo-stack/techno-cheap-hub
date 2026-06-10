@@ -26,6 +26,7 @@ import {
 } from "@/config/categories";
 import { AdminPanel } from "@/components/AdminPanel";
 import { useLinkOverrides } from "@/hooks/use-link-overrides";
+import { trackEvent } from "@/lib/analytics";
 
 import type { MouseEvent } from "react";
 
@@ -77,7 +78,10 @@ function CategoryCard({ category }: { category: Category }) {
   return (
     <a
       href={safeHref(link)}
-      onClick={guardClick(link)}
+      onClick={(e) => {
+        guardClick(link)(e);
+        trackEvent("click_category_card", { category_name: name });
+      }}
       target="_blank"
       rel="noopener noreferrer"
       className={`group relative flex flex-col p-5 sm:p-6 rounded-3xl bg-card border transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg ${
@@ -133,7 +137,10 @@ function HighlightCard({ category }: { category: Category }) {
       </p>
       <a
         href={safeHref(category.link)}
-        onClick={guardClick(category.link)}
+        onClick={(e) => {
+          guardClick(category.link)(e);
+          trackEvent("click_cta_button", { button_text: `${category.name} — ${category.cta}` });
+        }}
         target="_blank"
         rel="noopener noreferrer"
         className="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-2xl font-bold text-sm text-white transition-all hover:scale-[1.02] active:scale-[0.98]"

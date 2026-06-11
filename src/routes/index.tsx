@@ -374,7 +374,7 @@ function Index() {
               }}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg text-white transition-all hover:scale-[1.03] active:scale-[0.97]"
+              className="mt-8 inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg text-white md:transition-all md:hover:scale-[1.03] active:scale-[0.97]"
               style={{ background: "var(--gradient-shopee)", boxShadow: "var(--shadow-glow-lg)" }}
             >
               <ShoppingBag size={22} />

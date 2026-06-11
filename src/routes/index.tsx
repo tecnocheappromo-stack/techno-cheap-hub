@@ -119,7 +119,7 @@ function HighlightCard({ category }: { category: Category }) {
   const Icon = ICONS[category.icon];
   return (
     <div
-      className="group flex flex-col p-6 rounded-3xl bg-card border border-border transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
+      className="group flex flex-col p-6 rounded-3xl bg-card border border-border md:transition-all md:duration-300 md:hover:-translate-y-1.5 md:hover:shadow-lg"
       style={{ boxShadow: "var(--shadow-card)" }}
     >
       <div

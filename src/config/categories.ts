@@ -255,16 +255,6 @@ export const CATEGORIES: Category[] = [
     icon: "Microwave",
     order: 8,
   },
-  {
-    id: "mais-vendidos",
-    name: "Mais vendidos",
-    description: "Produtos com maior procura e maiores chances de promoção.",
-    cta: "Ver mais vendidos",
-    link: "COLOCAR_LINK_AQUI",
-    icon: "Flame",
-    order: 10,
-    showInHighlights: true,
-  },
 ];
 
 /* ============================================================

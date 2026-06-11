@@ -84,7 +84,7 @@ function CategoryCard({ category }: { category: Category }) {
       }}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative flex flex-col p-5 sm:p-6 rounded-3xl bg-card border transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg ${
+      className={`group relative flex flex-col p-5 sm:p-6 rounded-3xl bg-card border md:transition-all md:duration-300 md:hover:-translate-y-1.5 md:hover:shadow-lg ${
         featured ? "border-shopee/50 ring-1 ring-shopee/20 shadow-shopee/10" : "border-border"
       }`}
       style={{ boxShadow: featured ? "var(--shadow-card-featured)" : "var(--shadow-card)" }}
@@ -95,7 +95,7 @@ function CategoryCard({ category }: { category: Category }) {
         </span>
       )}
       <div
-        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
+        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 md:transition-transform md:duration-300 md:group-hover:scale-110"
         style={{
           background: featured ? "var(--gradient-shopee)" : "var(--gradient-icon)",
           boxShadow: featured

@@ -84,7 +84,7 @@ function CategoryCard({ category }: { category: Category }) {
       }}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative flex flex-col p-5 sm:p-6 rounded-3xl bg-card border transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg ${
+      className={`group relative flex flex-col p-5 sm:p-6 rounded-3xl bg-card border md:transition-all md:duration-300 md:hover:-translate-y-1.5 md:hover:shadow-lg ${
         featured ? "border-shopee/50 ring-1 ring-shopee/20 shadow-shopee/10" : "border-border"
       }`}
       style={{ boxShadow: featured ? "var(--shadow-card-featured)" : "var(--shadow-card)" }}
@@ -95,7 +95,7 @@ function CategoryCard({ category }: { category: Category }) {
         </span>
       )}
       <div
-        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
+        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 md:transition-transform md:duration-300 md:group-hover:scale-110"
         style={{
           background: featured ? "var(--gradient-shopee)" : "var(--gradient-icon)",
           boxShadow: featured
@@ -107,9 +107,9 @@ function CategoryCard({ category }: { category: Category }) {
       </div>
       <h3 className="font-bold text-lg text-foreground leading-tight">{name}</h3>
       <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">{description}</p>
-      <div className="mt-5 inline-flex items-center gap-2 font-semibold text-sm text-primary group-hover:gap-3 transition-all">
+      <div className="mt-5 inline-flex items-center gap-2 font-semibold text-sm text-primary md:group-hover:gap-3 md:transition-all">
         {cta}
-        <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+        <ArrowRight size={16} className="md:transition-transform md:group-hover:translate-x-0.5" />
       </div>
     </a>
   );
@@ -119,7 +119,7 @@ function HighlightCard({ category }: { category: Category }) {
   const Icon = ICONS[category.icon];
   return (
     <div
-      className="group flex flex-col p-6 rounded-3xl bg-card border border-border transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
+      className="group flex flex-col p-6 rounded-3xl bg-card border border-border md:transition-all md:duration-300 md:hover:-translate-y-1.5 md:hover:shadow-lg"
       style={{ boxShadow: "var(--shadow-card)" }}
     >
       <div
@@ -143,7 +143,7 @@ function HighlightCard({ category }: { category: Category }) {
         }}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-2xl font-bold text-sm text-white transition-all hover:scale-[1.02] active:scale-[0.98]"
+        className="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-2xl font-bold text-sm text-white md:transition-all md:hover:scale-[1.02] active:scale-[0.98]"
         style={{ background: "var(--gradient-shopee)", boxShadow: "var(--shadow-glow-sm)" }}
       >
         {category.cta}
@@ -197,7 +197,7 @@ function Index() {
         className="relative overflow-hidden text-white"
         style={{ background: "var(--gradient-hero)" }}
       >
-        <div className="absolute inset-0 opacity-25 pointer-events-none">
+        <div className="absolute inset-0 opacity-25 pointer-events-none hidden md:block">
           <div className="absolute -top-32 -right-20 w-80 h-80 rounded-full bg-shopee blur-[80px]" />
           <div className="absolute bottom-0 -left-24 w-80 h-80 rounded-full bg-brand-blue blur-[80px]" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-shopee/40 blur-[100px]" />
@@ -248,12 +248,12 @@ function Index() {
               }}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg text-white transition-all hover:scale-[1.03] active:scale-[0.97]"
+              className="group inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg text-white md:transition-all md:hover:scale-[1.03] active:scale-[0.97]"
               style={{ background: "var(--gradient-shopee)", boxShadow: "var(--shadow-glow-lg)" }}
             >
               <Play size={22} className="fill-white" />
               Ver produto do vídeo
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={20} className="md:group-hover:translate-x-1 md:transition-transform" />
             </a>
             <p className="text-[11px] text-white/50 max-w-xs leading-relaxed">
               Os preços e estoques podem mudar dentro da Shopee. Confira sempre antes de comprar.
@@ -354,7 +354,7 @@ function Index() {
           className="max-w-4xl mx-auto rounded-[2rem] px-6 py-14 md:py-20 text-center text-white overflow-hidden relative"
           style={{ background: "var(--gradient-hero)" }}
         >
-          <div className="absolute inset-0 opacity-30 pointer-events-none">
+          <div className="absolute inset-0 opacity-30 pointer-events-none hidden md:block">
             <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-shopee blur-3xl" />
             <div className="absolute -bottom-8 -left-8 w-48 h-48 rounded-full bg-brand-blue blur-3xl" />
           </div>
@@ -374,7 +374,7 @@ function Index() {
               }}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg text-white transition-all hover:scale-[1.03] active:scale-[0.97]"
+              className="mt-8 inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg text-white md:transition-all md:hover:scale-[1.03] active:scale-[0.97]"
               style={{ background: "var(--gradient-shopee)", boxShadow: "var(--shadow-glow-lg)" }}
             >
               <ShoppingBag size={22} />

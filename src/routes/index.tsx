@@ -354,7 +354,7 @@ function Index() {
           className="max-w-4xl mx-auto rounded-[2rem] px-6 py-14 md:py-20 text-center text-white overflow-hidden relative"
           style={{ background: "var(--gradient-hero)" }}
         >
-          <div className="absolute inset-0 opacity-30 pointer-events-none">
+          <div className="absolute inset-0 opacity-30 pointer-events-none hidden md:block">
             <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-shopee blur-3xl" />
             <div className="absolute -bottom-8 -left-8 w-48 h-48 rounded-full bg-brand-blue blur-3xl" />
           </div>

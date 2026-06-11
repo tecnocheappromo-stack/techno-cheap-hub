@@ -248,12 +248,12 @@ function Index() {
               }}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg text-white transition-all hover:scale-[1.03] active:scale-[0.97]"
+              className="group inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg text-white md:transition-all md:hover:scale-[1.03] active:scale-[0.97]"
               style={{ background: "var(--gradient-shopee)", boxShadow: "var(--shadow-glow-lg)" }}
             >
               <Play size={22} className="fill-white" />
               Ver produto do vídeo
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={20} className="md:group-hover:translate-x-1 md:transition-transform" />
             </a>
             <p className="text-[11px] text-white/50 max-w-xs leading-relaxed">
               Os preços e estoques podem mudar dentro da Shopee. Confira sempre antes de comprar.

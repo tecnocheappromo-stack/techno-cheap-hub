@@ -107,9 +107,9 @@ function CategoryCard({ category }: { category: Category }) {
       </div>
       <h3 className="font-bold text-lg text-foreground leading-tight">{name}</h3>
       <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">{description}</p>
-      <div className="mt-5 inline-flex items-center gap-2 font-semibold text-sm text-primary group-hover:gap-3 transition-all">
+      <div className="mt-5 inline-flex items-center gap-2 font-semibold text-sm text-primary md:group-hover:gap-3 md:transition-all">
         {cta}
-        <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+        <ArrowRight size={16} className="md:transition-transform md:group-hover:translate-x-0.5" />
       </div>
     </a>
   );

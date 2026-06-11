@@ -143,7 +143,7 @@ function HighlightCard({ category }: { category: Category }) {
         }}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-2xl font-bold text-sm text-white transition-all hover:scale-[1.02] active:scale-[0.98]"
+        className="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-2xl font-bold text-sm text-white md:transition-all md:hover:scale-[1.02] active:scale-[0.98]"
         style={{ background: "var(--gradient-shopee)", boxShadow: "var(--shadow-glow-sm)" }}
       >
         {category.cta}

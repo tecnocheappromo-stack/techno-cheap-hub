@@ -197,7 +197,7 @@ function Index() {
         className="relative overflow-hidden text-white"
         style={{ background: "var(--gradient-hero)" }}
       >
-        <div className="absolute inset-0 opacity-25 pointer-events-none">
+        <div className="absolute inset-0 opacity-25 pointer-events-none hidden md:block">
           <div className="absolute -top-32 -right-20 w-80 h-80 rounded-full bg-shopee blur-[80px]" />
           <div className="absolute bottom-0 -left-24 w-80 h-80 rounded-full bg-brand-blue blur-[80px]" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-shopee/40 blur-[100px]" />

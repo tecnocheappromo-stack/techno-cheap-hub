@@ -108,14 +108,20 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZB6LL2R78"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-RZB6LL2R78');
+              window.gtag = gtag;
+              window.addEventListener('load', function() {
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-RZB6LL2R78';
+                document.head.appendChild(s);
+                gtag('js', new Date());
+                gtag('config', 'G-RZB6LL2R78');
+              });
             `,
           }}
         />

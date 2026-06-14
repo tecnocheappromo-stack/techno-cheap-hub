@@ -93,6 +93,8 @@ export const ALLOWED_LINK_HOSTS = [
   "s.shopee.com.br",
   "shp.ee",
   "collshp.com",
+  "chat.whatsapp.com",
+  "whatsapp.com",
 ] as const;
 
 export type LinkValidation =

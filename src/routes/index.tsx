@@ -189,6 +189,7 @@ function Index() {
   const highlights = getHighlights().map(withOverride);
   const mainVideoLink = overrides["SITE_LINKS.mainVideo"] ?? SITE_LINKS.mainVideo;
   const fullShopLink = overrides["SITE_LINKS.fullShop"] ?? SITE_LINKS.fullShop;
+  const whatsappLink = overrides["SITE_LINKS.whatsappGroup"] ?? SITE_LINKS.whatsappGroup;
 
 
   return (

@@ -13,6 +13,7 @@ import {
   Users,
   TrendingUp,
   Package,
+  MessageCircle,
   type LucideIcon,
 } from "lucide-react";
 import {

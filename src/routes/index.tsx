@@ -13,6 +13,7 @@ import {
   Users,
   TrendingUp,
   Package,
+  MessageCircle,
   type LucideIcon,
 } from "lucide-react";
 import {
@@ -188,6 +189,7 @@ function Index() {
   const highlights = getHighlights().map(withOverride);
   const mainVideoLink = overrides["SITE_LINKS.mainVideo"] ?? SITE_LINKS.mainVideo;
   const fullShopLink = overrides["SITE_LINKS.fullShop"] ?? SITE_LINKS.fullShop;
+  const whatsappLink = overrides["SITE_LINKS.whatsappGroup"] ?? SITE_LINKS.whatsappGroup;
 
 
   return (
@@ -255,12 +257,58 @@ function Index() {
               Ver produto do vídeo
               <ArrowRight size={20} className="md:group-hover:translate-x-1 md:transition-transform" />
             </a>
+            <a
+              href={safeHref(whatsappLink)}
+              onClick={(e) => {
+                guardClick(whatsappLink)(e);
+                trackEvent("click_cta_button", { button_text: "Entrar no grupo de ofertas" });
+              }}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-sm text-white border border-white/25 bg-white/10 backdrop-blur-sm md:transition-all md:hover:bg-white/20 active:scale-[0.97]"
+            >
+              <MessageCircle size={20} />
+              💬 Entrar no grupo de ofertas
+              <ArrowRight size={18} className="md:group-hover:translate-x-1 md:transition-transform" />
+            </a>
             <p className="text-[11px] text-white/50 max-w-xs leading-relaxed">
               Os preços e estoques podem mudar dentro da Shopee. Confira sempre antes de comprar.
             </p>
           </div>
         </div>
       </header>
+
+      {/* WHATSAPP CTA */}
+      <section className="max-w-4xl mx-auto px-5 py-12 md:py-16">
+        <div className="flex flex-col sm:flex-row items-center gap-6 p-6 md:p-8 rounded-3xl bg-card border border-border" style={{ boxShadow: "var(--shadow-card)" }}>
+          <div className="shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: "var(--gradient-shopee)", boxShadow: "0 8px 24px -8px oklch(0.65 0.22 35 / 0.45)" }}>
+            <MessageCircle size={26} className="text-white" />
+          </div>
+          <div className="flex-1 text-center sm:text-left">
+            <h2 className="text-xl md:text-2xl font-black tracking-tight text-foreground">
+              Quer receber ofertas antes de todo mundo?
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+              Entre no nosso grupo e receba achadinhos de tecnologia, promoções relâmpago e produtos com bom custo-benefício direto no WhatsApp.
+            </p>
+          </div>
+          <a
+            href={safeHref(whatsappLink)}
+            onClick={(e) => {
+              guardClick(whatsappLink)(e);
+              trackEvent("click_cta_button", { button_text: "Entrar no grupo de ofertas (card)" });
+            }}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-bold text-sm text-white md:transition-all md:hover:scale-[1.02] active:scale-[0.98]"
+            style={{ background: "var(--gradient-shopee)", boxShadow: "var(--shadow-glow-sm)" }}
+          >
+            <MessageCircle size={18} />
+            💬 Entrar no grupo de ofertas
+            <ArrowRight size={16} />
+          </a>
+        </div>
+      </section>
 
       {/* CATEGORIES */}
       <section className="max-w-6xl mx-auto px-5 py-16 md:py-24">

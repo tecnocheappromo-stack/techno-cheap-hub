@@ -93,6 +93,8 @@ export const ALLOWED_LINK_HOSTS = [
   "s.shopee.com.br",
   "shp.ee",
   "collshp.com",
+  "chat.whatsapp.com",
+  "whatsapp.com",
 ] as const;
 
 export type LinkValidation =
@@ -173,6 +175,8 @@ export const SITE_LINKS = {
   mainVideo: "https://collshp.com/technocheap/category/3861778?view=storefront",
   // Botão final "Ver todos os achadinhos"
   fullShop: "COLOCAR_LINK_AQUI",
+  // Grupo do WhatsApp
+  whatsappGroup: "https://chat.whatsapp.com/D7Hy7JmpQUGEFGzAOLt8Bc?s=cl&p=a&ilr=0",
 };
 
 /* ============================================================

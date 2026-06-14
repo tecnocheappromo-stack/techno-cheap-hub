@@ -257,6 +257,20 @@ function Index() {
               Ver produto do vídeo
               <ArrowRight size={20} className="md:group-hover:translate-x-1 md:transition-transform" />
             </a>
+            <a
+              href={safeHref(whatsappLink)}
+              onClick={(e) => {
+                guardClick(whatsappLink)(e);
+                trackEvent("click_cta_button", { button_text: "Entrar no grupo de ofertas" });
+              }}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-sm text-white border border-white/25 bg-white/10 backdrop-blur-sm md:transition-all md:hover:bg-white/20 active:scale-[0.97]"
+            >
+              <MessageCircle size={20} />
+              💬 Entrar no grupo de ofertas
+              <ArrowRight size={18} className="md:group-hover:translate-x-1 md:transition-transform" />
+            </a>
             <p className="text-[11px] text-white/50 max-w-xs leading-relaxed">
               Os preços e estoques podem mudar dentro da Shopee. Confira sempre antes de comprar.
             </p>

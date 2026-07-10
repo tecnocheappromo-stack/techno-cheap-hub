@@ -46,13 +46,13 @@ function guardClick(raw: string, store?: Category["store"]) {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Techno Cheap | Achadinhos da Shopee, Mercado Livre e Amazon" },
+      { title: "Techno Cheap | Achadinhos da Shopee e Mercado Livre" },
       {
         name: "description",
         content:
-          "Encontre produtos em oferta na Shopee, Mercado Livre e Amazon separados por categoria: tecnologia, projetores, fones, tablets, celulares, casa e muito mais.",
+          "Encontre produtos em oferta na Shopee e no Mercado Livre separados por categoria: tecnologia, projetores, fones, tablets, celulares, casa e muito mais.",
       },
-      { property: "og:title", content: "Techno Cheap | Achadinhos da Shopee, Mercado Livre e Amazon" },
+      { property: "og:title", content: "Techno Cheap | Achadinhos da Shopee e Mercado Livre" },
       {
         property: "og:description",
         content:
@@ -229,7 +229,7 @@ function Index() {
             <span className="font-bold text-lg tracking-tight">Techno Cheap</span>
           </div>
           <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] font-semibold bg-white/10 backdrop-blur px-3 py-1.5 rounded-full border border-white/15">
-            <ShoppingBag size={13} /> Shopee · Mercado Livre · Amazon
+            <ShoppingBag size={13} /> Shopee · Mercado Livre
           </span>
         </nav>
 
@@ -250,7 +250,7 @@ function Index() {
           </h1>
 
           <p className="mt-5 text-base sm:text-lg text-white/80 max-w-lg mx-auto leading-relaxed">
-            Produtos em oferta na Shopee, Mercado Livre e Amazon, separados por categoria para
+            Produtos em oferta na Shopee e no Mercado Livre, separados por categoria para
             você encontrar rápido o que apareceu no TikTok.
           </p>
 
@@ -334,7 +334,7 @@ function Index() {
           </h2>
           <p className="mt-3 text-muted-foreground max-w-md mx-auto text-base leading-relaxed">
             Clique na categoria que você quer ver e acesse as ofertas direto na loja oficial —
-            Shopee, Mercado Livre ou Amazon.
+            Shopee ou Mercado Livre.
           </p>
         </div>
 
@@ -459,7 +459,7 @@ function Index() {
           <span className="font-bold text-foreground text-lg">Techno Cheap</span>
         </div>
         <p className="text-xs text-muted-foreground">
-          Tudo que você precisa em um só lugar · Shopee, Mercado Livre e Amazon
+          Tudo que você precisa em um só lugar · Shopee e Mercado Livre
         </p>
         <div className="mt-4 flex items-center justify-center gap-1.5 text-[10px] text-muted-foreground">
           <ShieldCheck size={12} />

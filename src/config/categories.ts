@@ -122,6 +122,7 @@ export const STORES: Record<StoreId, StoreConfig> = {
       "produto.mercadolivre.com.br",
       "lista.mercadolivre.com.br",
       "mercadopago.com.br",
+      "meli.la",
     ],
     badgeClass: "bg-mercadolivre text-mercadolivre-foreground",
     gradientVar: "var(--gradient-mercadolivre)",
@@ -488,3 +489,5 @@ export function buildConfigExport(): string {
   };
   return JSON.stringify(data, null, 2);
 }
+
+

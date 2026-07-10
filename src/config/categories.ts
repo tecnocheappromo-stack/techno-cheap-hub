@@ -242,7 +242,7 @@ export const SITE_LINKS = {
   // Botão "Ver produto do vídeo" (hero + rodapé fixo do mobile)
   mainVideo: "https://collshp.com/technocheap/category/3861778?view=storefront",
   // Botão final "Ver todos os achadinhos"
-  fullShop: "COLOCAR_LINK_AQUI",
+  fullShop: "https://collshp.com/technocheap?view=storefront",
   // Grupo do WhatsApp
   whatsappGroup: "https://chat.whatsapp.com/D7Hy7JmpQUGEFGzAOLt8Bc?s=cl&p=a&ilr=0",
 };
@@ -347,7 +347,7 @@ export const CATEGORIES: Category[] = [
     description: "Celulares, tablets e eletrônicos com ofertas no Mercado Livre.",
     cta: "Ver no Mercado Livre",
     store: "mercadolivre",
-    link: LINK_PLACEHOLDER,
+    link: https://meli.la/1DRaGZv,
     icon: "Smartphone",
     order: 9,
   },
@@ -357,7 +357,7 @@ export const CATEGORIES: Category[] = [
     description: "Itens para casa e eletrodomésticos com bom custo-benefício.",
     cta: "Ver no Mercado Livre",
     store: "mercadolivre",
-    link: LINK_PLACEHOLDER,
+    link: https://meli.la/2UqLU9K,
     icon: "Home",
     order: 10,
   },

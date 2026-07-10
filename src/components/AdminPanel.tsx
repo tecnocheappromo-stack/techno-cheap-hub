@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import {
   CATEGORIES,
   SITE_LINKS,
+  STORES,
   validateConfig,
   validateLink,
   setLinkOverride,
@@ -9,6 +10,7 @@ import {
   buildConfigExport,
   ALLOWED_LINK_HOSTS,
   type CategoryIssue,
+  type StoreId,
 } from "@/config/categories";
 import { useLinkOverrides } from "@/hooks/use-link-overrides";
 import {
@@ -98,7 +100,10 @@ function Panel({
           name:
             key === "mainVideo"
               ? "Botão: Ver produto do vídeo"
-              : "Botão: Ver todos os achadinhos",
+              : key === "whatsappGroup"
+                ? "Botão: Grupo do WhatsApp"
+                : "Botão: Ver todos os achadinhos",
+          store: undefined as StoreId | undefined,
           defaultLink,
           currentLink: overrides[id] ?? defaultLink,
           isOverridden: id in overrides,
@@ -108,6 +113,7 @@ function Panel({
       ...CATEGORIES.map((c) => ({
         id: c.id,
         name: c.name,
+        store: c.store,
         defaultLink: c.link,
         currentLink: overrides[c.id] ?? c.link,
         isOverridden: c.id in overrides,
@@ -123,11 +129,11 @@ function Panel({
     return acc;
   }, {});
 
-  const valid = rows.filter((r) => validateLink(r.currentLink).status === "valid").length;
+  const valid = rows.filter((r) => validateLink(r.currentLink, r.store).status === "valid").length;
   const placeholder = rows.filter(
-    (r) => validateLink(r.currentLink).status === "placeholder",
+    (r) => validateLink(r.currentLink, r.store).status === "placeholder",
   ).length;
-  const invalid = rows.filter((r) => validateLink(r.currentLink).status === "invalid").length;
+  const invalid = rows.filter((r) => validateLink(r.currentLink, r.store).status === "invalid").length;
 
   const handleExport = async () => {
     const json = buildConfigExport();
@@ -227,6 +233,7 @@ function Panel({
                 key={r.id}
                 id={r.id}
                 name={r.name}
+                store={r.store}
                 isGlobal={r.isGlobal}
                 currentLink={r.currentLink}
                 defaultLink={r.defaultLink}
@@ -249,6 +256,7 @@ function Panel({
 function Row({
   id,
   name,
+  store,
   isGlobal,
   currentLink,
   defaultLink,
@@ -258,6 +266,7 @@ function Row({
 }: {
   id: string;
   name: string;
+  store?: StoreId;
   isGlobal: boolean;
   currentLink: string;
   defaultLink: string;
@@ -276,12 +285,13 @@ function Row({
     }
   }, [currentLink, editing]);
 
-  const v = validateLink(currentLink);
-  const draftValidation = validateLink(draft);
+  const v = validateLink(currentLink, store);
+  const draftValidation = validateLink(draft, store);
+  const rowHosts = store ? STORES[store].hosts : ALLOWED_LINK_HOSTS;
 
   const handleSave = () => {
     const trimmed = draft.trim();
-    const r = validateLink(trimmed);
+    const r = validateLink(trimmed, store);
     if (r.status === "invalid") {
       setLocalError(r.message);
       onToast({ type: "err", msg: `Link inválido: ${r.message}` });
@@ -311,6 +321,11 @@ function Row({
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="font-bold text-foreground truncate">{name}</span>
+            {store && (
+              <span className={`text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded ${STORES[store].badgeClass}`}>
+                {STORES[store].label}
+              </span>
+            )}
             {isGlobal && (
               <span className="text-[9px] uppercase tracking-wider bg-muted px-1.5 py-0.5 rounded">
                 global
@@ -384,10 +399,13 @@ function Row({
               if (e.key === "Enter") handleSave();
               if (e.key === "Escape") handleCancel();
             }}
-            placeholder="https://shopee.com.br/..."
+            placeholder={store ? `https://${STORES[store].hosts[0]}/...` : "https://..."}
             className="w-full px-3 py-2 text-[12px] font-mono rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring"
             autoFocus
           />
+          <p className="text-[10px] text-muted-foreground">
+            Domínios aceitos: <span className="font-mono">{rowHosts.join(", ")}</span>
+          </p>
           {localError && (
             <p className="text-[11px] text-red-600 dark:text-red-400">{localError}</p>
           )}

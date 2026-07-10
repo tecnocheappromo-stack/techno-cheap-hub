@@ -242,7 +242,7 @@ export const SITE_LINKS = {
   // Botão "Ver produto do vídeo" (hero + rodapé fixo do mobile)
   mainVideo: "https://collshp.com/technocheap/category/3861778?view=storefront",
   // Botão final "Ver todos os achadinhos"
-  fullShop: "https://collshp.com/technocheap?view=storefront",
+  fullShop: "COLOCAR_LINK_AQUI",
   // Grupo do WhatsApp
   whatsappGroup: "https://chat.whatsapp.com/D7Hy7JmpQUGEFGzAOLt8Bc?s=cl&p=a&ilr=0",
 };
@@ -347,7 +347,7 @@ export const CATEGORIES: Category[] = [
     description: "Celulares, tablets e eletrônicos com ofertas no Mercado Livre.",
     cta: "Ver no Mercado Livre",
     store: "mercadolivre",
-    link: https://meli.la/1DRaGZv,
+    link: LINK_PLACEHOLDER,
     icon: "Smartphone",
     order: 9,
   },
@@ -357,35 +357,9 @@ export const CATEGORIES: Category[] = [
     description: "Itens para casa e eletrodomésticos com bom custo-benefício.",
     cta: "Ver no Mercado Livre",
     store: "mercadolivre",
-    link: https://meli.la/2UqLU9K,
+    link: LINK_PLACEHOLDER,
     icon: "Home",
     order: 10,
-  },
-
-  /* --------------------------------------------------------
-   *  AMAZON
-   *  Troque o link de cada categoria abaixo pelo link gerado
-   *  no SiteStripe / Creators API da sua conta de Associado.
-   * -------------------------------------------------------- */
-  {
-    id: "amazon-tech",
-    name: "Tecnologia Amazon",
-    description: "Achadinhos de tecnologia e acessórios vendidos e entregues pela Amazon.",
-    cta: "Ver na Amazon",
-    store: "amazon",
-    link: LINK_PLACEHOLDER,
-    icon: "Package",
-    order: 11,
-  },
-  {
-    id: "amazon-casa",
-    name: "Casa Amazon",
-    description: "Produtos para casa com entrega rápida pela Amazon.",
-    cta: "Ver na Amazon",
-    store: "amazon",
-    link: LINK_PLACEHOLDER,
-    icon: "Home",
-    order: 12,
   },
 ];
 
@@ -514,5 +488,3 @@ export function buildConfigExport(): string {
   };
   return JSON.stringify(data, null, 2);
 }
-
-

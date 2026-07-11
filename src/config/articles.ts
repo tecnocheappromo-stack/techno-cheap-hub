@@ -235,6 +235,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta",
         store: "mercadolivre",
         link: "https://meli.la/2NHfQNn",
+        image: "https://images.kabum.com.br/produtos/fotos/magalu/881112/medium/MOTOROLA-G86-5G-256GB_1748633773.jpg",
       },
       {
         type: "heading",
@@ -251,6 +252,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta",
         store: "mercadolivre",
         link: "https://meli.la/1qUHEQh",
+        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/734633/medium/Smartphone-Samsung-Galaxy-A36-128GB-5g-Preto-C-mera-Tripla-50mp-Ram-6gb-Tela-6-7-_1781278742.jpg",
       },
       {
         type: "heading",
@@ -267,6 +269,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta",
         store: "mercadolivre",
         link: "https://meli.la/23ckBzM",
+        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/734571/medium/Smartphone-Samsung-Galaxy-A56-128GB-Preto-5g-C-mera-Tripla-50mp-Ram-8GB-Tela-6-7-_1777055936.jpg",
       },
       {
         type: "heading",
@@ -283,6 +286,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta",
         store: "mercadolivre",
         link: "https://meli.la/1Hmp1Lx",
+        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/716544/medium/Smartphone-Xiaomi-Poco-X7-Pro-256gb-12gb-Ram-5g-Vers-o-Global-Nfc_1765458539.jpg",
       },
       {
         type: "heading",
@@ -299,6 +303,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta",
         store: "mercadolivre",
         link: "https://meli.la/2p3EfS6",
+        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/924194/medium/Smartphone-Samsung-Galaxy-A17-5g-Com-Ia-256GB-8GB-RAM-C-m-De-50mp-Tela-De-6-7-NFC-Ip54-Preto_1770927225.jpg",
       },
       {
         type: "heading",
@@ -345,11 +350,21 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "cta",
+        title: "Havit MS1003",
+        text: "Confira o preço atual e a disponibilidade.",
+        buttonLabel: "Ver oferta",
+        store: "mercadolivre",
+        link: "https://meli.la/1PWa51W",
+        image: "https://img.terabyteshop.com.br/produto/g/mouse-gamer-havit-ms1003-rgb-4-botoes-2400-dpi-preto_66716.jpg",
+      },
+      {
+        type: "cta",
         title: "Redragon Cobra M711",
         text: "Confira o preço atual e a disponibilidade.",
         buttonLabel: "Ver oferta",
-        store: "shopee",
-        link: LINK_PLACEHOLDER,
+        store: "mercadolivre",
+        link: "https://meli.la/16s1NiX",
+        image: "https://img.terabyteshop.com.br/produto/m/mouse-gamer-redragon-cobra-v2-rgb-12400-dpi-8-botoes-programaveis-black-m711-v2_193873.jpg",
       },
       {
         type: "paragraph",
@@ -361,7 +376,17 @@ export const ARTICLES: Article[] = [
         text: "Confira o preço atual e a disponibilidade.",
         buttonLabel: "Ver oferta",
         store: "shopee",
-        link: LINK_PLACEHOLDER,
+        link: "https://s.shopee.com.br/7KvIv30nuT",
+        image: "https://img.terabyteshop.com.br/produto/m/mouse-logitech-gamer-prodigy-g203-6-botoes-6000-dpi-preto_37772.png",
+      },
+      {
+        type: "cta",
+        title: "Logitech G Pro X Superlight",
+        text: "Confira o preço atual e a disponibilidade.",
+        buttonLabel: "Ver oferta",
+        store: "amazon",
+        link: "https://link.amazon/B09cpIIoN",
+        image: "https://img.terabyteshop.com.br/produto/m/mouse-gamer-logitech-g-pro-x-superlight-sem-fio-25400-dpi-sensor-hero-5-botoes-vermelho-910-006783_234449.jpg",
       },
       {
         type: "heading",
@@ -377,7 +402,8 @@ export const ARTICLES: Article[] = [
         text: "Confira o preço atual e a disponibilidade.",
         buttonLabel: "Ver oferta",
         store: "mercadolivre",
-        link: LINK_PLACEHOLDER,
+        link: "https://meli.la/1caEgHJ",
+        image: "https://images.tcdn.com.br/img/img_prod/670412/headset_gamer_profissional_onikuma_x32_rgb_preto_4715_1_0ea615972ec25a9b33c9e47f34db55d8.jpg",
       },
       {
         type: "paragraph",
@@ -396,8 +422,9 @@ export const ARTICLES: Article[] = [
         title: "LG UltraGear 24GS60F-B",
         text: "Confira o preço atual e a disponibilidade.",
         buttonLabel: "Ver oferta",
-        store: "shopee",
-        link: LINK_PLACEHOLDER,
+        store: "amazon",
+        link: "https://link.amazon/B0eWLthb0",
+        image: "https://images.kabum.com.br/produtos/fotos/614879/monitor-gamer-lg-ultragear-24-full-hd-ips-180hz-1ms-displayport-e-hdmi-nvidia-g-sync-amd-freesync-hdr10-srgb-99-24gs60f-b_1722881105_m.jpg",
       },
       {
         type: "paragraph",
@@ -408,8 +435,9 @@ export const ARTICLES: Article[] = [
         title: "Samsung Odyssey G30",
         text: "Confira o preço atual e a disponibilidade.",
         buttonLabel: "Ver oferta",
-        store: "mercadolivre",
-        link: LINK_PLACEHOLDER,
+        store: "amazon",
+        link: "https://link.amazon/B0bhGXXTL",
+        image: "https://images.kabum.com.br/produtos/fotos/magalu/459198/Monitor-Gamer-Samsung-Odyssey-G30-24-Full-HD_1682704439_m.jpg",
       },
       {
         type: "heading",

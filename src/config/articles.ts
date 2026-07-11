@@ -212,7 +212,7 @@ export const ARTICLES: Article[] = [
         title: "Moto G86",
         text: "Confira o preço atual e a disponibilidade.",
         buttonLabel: "Ver oferta",
-        store: "mercado livre",
+        store: "mercadolivre",
         link: "https://meli.la/2NHfQNn",
       },
       {
@@ -228,7 +228,7 @@ export const ARTICLES: Article[] = [
         title: "Galaxy A36 5G",
         text: "Confira o preço atual e a disponibilidade.",
         buttonLabel: "Ver oferta",
-        store: "mercado Livre",
+        store: "mercadolivre",
         link: "https://meli.la/1qUHEQh",
       },
       {
@@ -244,7 +244,7 @@ export const ARTICLES: Article[] = [
         title: "Galaxy A56 5G",
         text: "Confira o preço atual e a disponibilidade.",
         buttonLabel: "Ver oferta",
-        store: "mercado livre",
+        store: "mercadolivre",
         link: "https://meli.la/23ckBzM",
       },
       {
@@ -260,7 +260,7 @@ export const ARTICLES: Article[] = [
         title: "Linha Poco",
         text: "Confira o preço atual e a disponibilidade.",
         buttonLabel: "Ver oferta",
-        store: "mercado livre",
+        store: "mercadolivre",
         link: "https://meli.la/1Hmp1Lx",
       },
       {
@@ -276,7 +276,7 @@ export const ARTICLES: Article[] = [
         title: "Galaxy A17",
         text: "Confira o preço atual e a disponibilidade.",
         buttonLabel: "Ver oferta",
-        store: "mercado livre",
+        store: "mercadolivre",
         link: "https://meli.la/2p3EfS6",
       },
       {
@@ -295,6 +295,117 @@ export const ARTICLES: Article[] = [
       {
         type: "paragraph",
         text: "No fim, o melhor smartphone não é necessariamente o mais caro da lista — é o que combina com o seu uso real. Se você grava muito vídeo, priorize câmera e estabilização; se joga bastante, foque em processador; se é o uso do dia a dia, bateria e tela pesam mais que qualquer especificação técnica isolada.",
+      },
+    ],
+  },
+  {
+    slug: "produtos-gamer-mais-procurados-da-semana",
+    title: "Produtos gamer mais procurados da semana: mouse, headset e monitor",
+    description:
+      "Os periféricos gamer mais buscados agora, com opções pra todo orçamento — do mouse de R$ 35 ao monitor 180Hz que virou o queridinho do custo-benefício.",
+    category: "comparativo",
+    coverIcon: "Sparkles",
+    publishedAt: "2026-07-11",
+    tags: ["gamer", "mouse", "headset", "monitor", "setup"],
+    readTimeMinutes: 9,
+    relatedCategoryIds: [],
+    content: [
+      {
+        type: "paragraph",
+        text: "Montar ou dar um upgrade no setup gamer não precisa custar caro. Reunimos os mouses, headsets e monitores mais procurados no momento, organizados por faixa de investimento — do básico funcional ao topo de linha, pra você escolher só o que realmente vai sentir diferença no jogo.",
+      },
+      {
+        type: "heading",
+        text: "Mouse gamer",
+      },
+      {
+        type: "paragraph",
+        text: "Na faixa de entrada, o Havit MS1003 (ou variantes como o HV-MS1001) segue como a porta de entrada mais popular: sensor óptico com DPI ajustável, botões programáveis e iluminação RGB por um preço bem baixo — só não espera software de configuração avançado. Um degrau acima, o Redragon Cobra M711 é um dos mouses mais vendidos do Brasil nessa faixa, com RGB customizável e boa relação de recursos pelo preço.",
+      },
+      {
+        type: "cta",
+        title: "Redragon Cobra M711",
+        text: "Confira o preço atual e a disponibilidade.",
+        buttonLabel: "Ver oferta",
+        store: "shopee",
+        link: LINK_PLACEHOLDER,
+      },
+      {
+        type: "paragraph",
+        text: "Para quem já quer sentir diferença de desempenho de verdade, o Logitech G203 Prodigy segue como referência de custo-benefício: sensor de até 8.000 DPI, 6 botões programáveis e construção confiável — um mouse que atende tanto jogos quanto uso do dia a dia. Se o orçamento permitir esticar mais, o Logitech G Pro X Superlight (sem fio, 63g, sensor HERO 25K) é o queridinho de quem joga competitivo e sente cada grama do mouse na mão.",
+      },
+      {
+        type: "cta",
+        title: "Logitech G203 Prodigy",
+        text: "Confira o preço atual e a disponibilidade.",
+        buttonLabel: "Ver oferta",
+        store: "shopee",
+        link: LINK_PLACEHOLDER,
+      },
+      {
+        type: "heading",
+        text: "Headset gamer",
+      },
+      {
+        type: "paragraph",
+        text: "O Onikuma X32 aparece com frequência entre os mais bem avaliados da faixa de entrada: drivers de 50mm para grave mais presente, almofadas confortáveis para sessões longas e microfone flexível com cancelamento de ruído — tudo isso girando em torno de R$ 130, com nota alta de avaliação nos marketplaces.",
+      },
+      {
+        type: "cta",
+        title: "Onikuma X32",
+        text: "Confira o preço atual e a disponibilidade.",
+        buttonLabel: "Ver oferta",
+        store: "mercadolivre",
+        link: LINK_PLACEHOLDER,
+      },
+      {
+        type: "paragraph",
+        text: "Vale reforçar um ponto na hora de escolher headset: drivers grandes (40-50mm) costumam dar mais grave e presença sonora, mas o que realmente separa um bom headset de um ruim pra quem joga em squad é a qualidade do microfone — cancelamento de ruído decente evita que o time reclame do barulho do teclado durante a partida.",
+      },
+      {
+        type: "heading",
+        text: "Monitor gamer",
+      },
+      {
+        type: "paragraph",
+        text: "Aqui está um dos upgrades que mais valem a pena: sair de 60Hz para 144Hz ou 180Hz muda a sensação de fluidez do jogo de forma perceptível nos primeiros minutos de uso, sem precisar de um PC muito mais forte para sentir a diferença. O LG UltraGear 24GS60F-B é hoje uma das referências de custo-benefício: painel IPS Full HD de 24 polegadas, 180Hz, 1ms de resposta e compatibilidade com FreeSync e G-Sync — ótimo tanto para jogos competitivos quanto para uso misto com trabalho.",
+      },
+      {
+        type: "cta",
+        title: "LG UltraGear 24GS60F-B",
+        text: "Confira o preço atual e a disponibilidade.",
+        buttonLabel: "Ver oferta",
+        store: "shopee",
+        link: LINK_PLACEHOLDER,
+      },
+      {
+        type: "paragraph",
+        text: "Para quem prefere painel VA (contraste mais profundo, bom em cenas escuras) em vez de IPS, o Samsung Odyssey G30 se destaca pela base totalmente ajustável — altura, inclinação, giro e até modo retrato, recurso raro nessa faixa de preço — mantendo 144Hz e boa resposta para jogos competitivos.",
+      },
+      {
+        type: "cta",
+        title: "Samsung Odyssey G30",
+        text: "Confira o preço atual e a disponibilidade.",
+        buttonLabel: "Ver oferta",
+        store: "mercadolivre",
+        link: LINK_PLACEHOLDER,
+      },
+      {
+        type: "heading",
+        text: "Como priorizar o orçamento",
+      },
+      {
+        type: "list",
+        items: [
+          "Se só dá pra trocar uma coisa agora, o monitor costuma trazer o ganho mais perceptível — sair de 60Hz pra 144Hz+ muda a sensação de jogo inteira",
+          "Mouse: DPI alto só importa se você realmente ajusta sensibilidade por jogo; pra maioria, 6-8 botões programáveis e peso equilibrado pesam mais no dia a dia",
+          "Headset: priorize conforto pra sessões longas e qualidade do microfone antes de brilho ou RGB",
+          "Painel IPS x VA: IPS entrega cor mais fiel e ângulo de visão melhor; VA ganha em contraste e cenas escuras — não tem errado, é sobre o que você joga mais",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Preços e estoque de periféricos gamer mudam bastante de semana pra semana nos marketplaces — vale sempre conferir o preço atual antes de fechar a compra, mesmo em modelos que já são conhecidos como boa pedida.",
       },
     ],
   },

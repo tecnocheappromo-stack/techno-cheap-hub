@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { useState } from "react";
 import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
 import { ICONS, STORES, safeHref, validateLink } from "@/config/categories";
 import { ARTICLE_CATEGORIES, getArticleBySlug, type Article, type ArticleBlock } from "@/config/articles";
@@ -51,6 +52,29 @@ function ArticleNotFound() {
   );
 }
 
+/** Imagem que some sozinha (sem quebrar o layout) se o link parar de funcionar. */
+function SafeImage({
+  src,
+  alt,
+  className,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+}) {
+  const [failed, setFailed] = useState(false);
+  if (failed) return null;
+  return (
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      onError={() => setFailed(true)}
+      className={className}
+    />
+  );
+}
+
 function Block({ block }: { block: ArticleBlock }) {
   switch (block.type) {
     case "heading":
@@ -73,6 +97,21 @@ function Block({ block }: { block: ArticleBlock }) {
           {block.text}
         </blockquote>
       );
+    case "image":
+      return (
+        <figure className="my-6">
+          <SafeImage
+            src={block.url}
+            alt={block.alt}
+            className="w-full rounded-3xl border border-border object-cover"
+          />
+          {block.caption && (
+            <figcaption className="mt-2 text-xs text-muted-foreground text-center">
+              {block.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
     case "cta": {
       const store = STORES[block.store];
       const v = validateLink(block.link, block.store);
@@ -81,6 +120,13 @@ function Block({ block }: { block: ArticleBlock }) {
           className="my-8 rounded-3xl p-6 text-white"
           style={{ background: store.gradientVar, boxShadow: "var(--shadow-glow-sm)" }}
         >
+          {block.image && (
+            <SafeImage
+              src={block.image}
+              alt={block.title}
+              className="w-full max-h-64 object-contain rounded-2xl bg-white/10 mb-4"
+            />
+          )}
           <span className="text-[10px] font-bold uppercase tracking-wider bg-white/20 px-2.5 py-1 rounded-full">
             {store.label}
           </span>

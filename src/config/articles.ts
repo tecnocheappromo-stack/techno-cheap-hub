@@ -22,10 +22,13 @@
  *  - { type: "heading", text: "..." }           → subtítulo (H2)
  *  - { type: "list", items: ["...", "..."] }    → lista com marcadores
  *  - { type: "quote", text: "..." }             → citação em destaque
+ *  - { type: "image", url: "...", alt: "..." }  → imagem solta no meio do texto
  *  - { type: "cta", ... }                       → caixa de destaque com
- *                                                  botão de link de afiliado
- *                                                  ou cupom (veja exemplo
- *                                                  no artigo de amostra)
+ *                                                  botão de link de afiliado,
+ *                                                  cupom, e opcionalmente
+ *                                                  uma foto do produto (campo
+ *                                                  `image`) — veja exemplo
+ *                                                  no artigo de amostra
  * ============================================================ */
 
 import { ICONS, STORES, validateLink, LINK_PLACEHOLDER, type IconName, type StoreId } from "./categories";
@@ -55,6 +58,15 @@ export type ArticleBlock =
   | { type: "list"; items: string[] }
   | { type: "quote"; text: string }
   | {
+      type: "image";
+      /** URL direta da imagem (ex: imagem do produto na página da loja) */
+      url: string;
+      /** Texto alternativo — obrigatório por acessibilidade e SEO */
+      alt: string;
+      /** Legenda opcional exibida abaixo da imagem */
+      caption?: string;
+    }
+  | {
       type: "cta";
       /** Título curto da caixa de destaque, ex: "Cupom exclusivo" */
       title: string;
@@ -68,6 +80,8 @@ export type ArticleBlock =
       link: string;
       /** Código do cupom, se houver (opcional) */
       couponCode?: string;
+      /** URL direta da imagem do produto (opcional) */
+      image?: string;
     };
 
 /* ============================================================
@@ -79,6 +93,12 @@ const articleBlockSchema: z.ZodType<ArticleBlock> = z.discriminatedUnion("type",
   z.object({ type: z.literal("list"), items: z.array(z.string().min(1)).min(1) }),
   z.object({ type: z.literal("quote"), text: z.string().min(1) }),
   z.object({
+    type: z.literal("image"),
+    url: z.string().url("URL da imagem inválida"),
+    alt: z.string().min(1, "toda imagem precisa de um texto alternativo (alt)"),
+    caption: z.string().optional(),
+  }),
+  z.object({
     type: z.literal("cta"),
     title: z.string().min(1),
     text: z.string().min(1),
@@ -86,6 +106,7 @@ const articleBlockSchema: z.ZodType<ArticleBlock> = z.discriminatedUnion("type",
     store: z.enum(Object.keys(STORES) as [StoreId, ...StoreId[]]),
     link: z.string().min(1),
     couponCode: z.string().optional(),
+    image: z.string().url("URL da imagem inválida").optional(),
   }),
 ]);
 

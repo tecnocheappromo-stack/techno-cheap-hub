@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://technocheap-brasil.vercel.app/sitemap.xml

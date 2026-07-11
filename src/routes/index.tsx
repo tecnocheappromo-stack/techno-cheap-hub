@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Flame,
   Sparkles,
@@ -14,6 +14,7 @@ import {
   TrendingUp,
   Package,
   MessageCircle,
+  BookOpen,
   type LucideIcon,
 } from "lucide-react";
 import {
@@ -228,9 +229,17 @@ function Index() {
             </div>
             <span className="font-bold text-lg tracking-tight">Techno Cheap</span>
           </div>
-          <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] font-semibold bg-white/10 backdrop-blur px-3 py-1.5 rounded-full border border-white/15">
-            <ShoppingBag size={13} /> Shopee · Mercado Livre
-          </span>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <Link
+              to="/artigos"
+              className="inline-flex items-center gap-1.5 text-[11px] font-semibold bg-white/10 backdrop-blur px-3 py-1.5 rounded-full border border-white/15 hover:bg-white/15 md:transition-colors"
+            >
+              <BookOpen size={13} /> Artigos
+            </Link>
+            <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] font-semibold bg-white/10 backdrop-blur px-3 py-1.5 rounded-full border border-white/15">
+              <ShoppingBag size={13} /> Shopee · Mercado Livre
+            </span>
+          </div>
         </nav>
 
         <div className="relative z-10 max-w-3xl mx-auto px-5 pt-10 pb-16 md:pt-16 md:pb-24 text-center">

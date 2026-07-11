@@ -28,7 +28,7 @@
  *                                                  no artigo de amostra)
  * ============================================================ */
 
-import { ICONS, STORES, validateLink, type IconName, type StoreId } from "./categories";
+import { ICONS, STORES, validateLink, LINK_PLACEHOLDER, type IconName, type StoreId } from "./categories";
 import { z } from "zod";
 
 /* ============================================================
@@ -172,6 +172,129 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver projetores em oferta",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3760310?view=storefront",
+      },
+    ],
+  },
+  {
+    slug: "melhores-smartphones-em-alta-agora",
+    title: "Melhores smartphones em alta agora: quais valem a pena",
+    description:
+      "Os intermediários dominaram as vendas em 2026. Veja quais modelos estão mais procurados agora e para qual perfil de uso cada um faz sentido.",
+    category: "comparativo",
+    coverIcon: "Smartphone",
+    publishedAt: "2026-07-10",
+    tags: ["smartphone", "celular", "comparativo"],
+    readTimeMinutes: 8,
+    relatedCategoryIds: ["celulares"],
+    content: [
+      {
+        type: "paragraph",
+        text: "Quem olha só pro topo de linha pode se surpreender: os celulares que mais vendem no Brasil em 2026 não são os mais caros. A maioria dos compradores está priorizando modelos intermediários que entregam tela boa, bateria que dura o dia inteiro e câmera decente, sem pagar o preço de um topo de linha. Reunimos os modelos que estão em alta agora, organizados por perfil de uso.",
+      },
+      {
+        type: "heading",
+        text: "Por que os intermediários estão dominando",
+      },
+      {
+        type: "paragraph",
+        text: "O comportamento do consumidor brasileiro mudou: em vez de esticar o orçamento para um topo de linha, a maioria busca o melhor equilíbrio entre preço e recursos do dia a dia — tela AMOLED, boa taxa de atualização, câmera versátil e bateria de longa duração. Isso empurrou modelos como a linha Galaxy A da Samsung e os intermediários da Motorola para o topo dos rankings de venda, na frente até de alguns topo de linha mais antigos.",
+      },
+      {
+        type: "heading",
+        text: "Melhor custo-benefício: Moto G86",
+      },
+      {
+        type: "paragraph",
+        text: "O Moto G86 chegou ao Brasil com preço salgado, mas passou a valer muito mais a pena depois das primeiras quedas de preço nos marketplaces. Tem acabamento acima do que se espera nessa faixa, tela AMOLED de 120Hz com tecnologia LTPO (que economiza bateria em telas paradas), certificação IP68 contra água e poeira, e uma câmera com zoom óptico de 3x — recurso raro em intermediários. O carregamento ficou mais lento que o da geração anterior, mas isso não compromete a experiência geral.",
+      },
+      {
+        type: "cta",
+        title: "Moto G86",
+        text: "Confira o preço atual e a disponibilidade.",
+        buttonLabel: "Ver oferta",
+        store: "mercado livre",
+        link: "https://meli.la/2NHfQNn",
+      },
+      {
+        type: "heading",
+        text: "Mais equilibrado: Galaxy A36 5G",
+      },
+      {
+        type: "paragraph",
+        text: "Sem tentar ser o mais potente da categoria, o Galaxy A36 5G segue como um dos intermediários mais fáceis de recomendar. Entrega o que a maioria das pessoas realmente usa no dia a dia — desempenho estável, boa tela e suporte de longo prazo da Samsung — sem os exageros (e o preço) de modelos mais avançados.",
+      },
+      {
+        type: "cta",
+        title: "Galaxy A36 5G",
+        text: "Confira o preço atual e a disponibilidade.",
+        buttonLabel: "Ver oferta",
+        store: "mercado Livre",
+        link: "https://meli.la/1qUHEQh",
+      },
+      {
+        type: "heading",
+        text: "Mais vendido do momento: Galaxy A56 5G",
+      },
+      {
+        type: "paragraph",
+        text: "Aparece no topo de praticamente todos os rankings de vendas do ano. A tela de 6,7 polegadas com 120Hz de taxa de atualização e brilho alto é um dos pontos fortes, junto com a câmera principal de 50MP com estabilização óptica. A bateria de 5.000mAh aguenta tranquilamente um dia inteiro de uso intenso.",
+      },
+      {
+        type: "cta",
+        title: "Galaxy A56 5G",
+        text: "Confira o preço atual e a disponibilidade.",
+        buttonLabel: "Ver oferta",
+        store: "mercado livre",
+        link: "https://meli.la/23ckBzM",
+      },
+      {
+        type: "heading",
+        text: "Mais desempenho pelo preço: linha Poco",
+      },
+      {
+        type: "paragraph",
+        text: "Para quem joga no celular ou roda apps pesados, os modelos da linha Poco continuam entre os mais procurados por entregarem desempenho de processador acima da média da faixa de preço — às vezes competindo com intermediários bem mais caros. A troca costuma ser em câmera e acabamento, não em potência.",
+      },
+      {
+        type: "cta",
+        title: "Linha Poco",
+        text: "Confira o preço atual e a disponibilidade.",
+        buttonLabel: "Ver oferta",
+        store: "mercado livre",
+        link: "https://meli.la/1Hmp1Lx",
+      },
+      {
+        type: "heading",
+        text: "Entrada que não decepciona: Galaxy A17",
+      },
+      {
+        type: "paragraph",
+        text: "Na faixa de entrada é onde mais aparece celular que parece um bom negócio no anúncio e decepciona no uso — o Galaxy A17 é uma das exceções. Não tem os recursos dos modelos acima, mas entrega uma experiência estável para quem quer só um celular confiável para o dia a dia, sem travamentos constantes.",
+      },
+      {
+        type: "cta",
+        title: "Galaxy A17",
+        text: "Confira o preço atual e a disponibilidade.",
+        buttonLabel: "Ver oferta",
+        store: "mercado livre",
+        link: "https://meli.la/2p3EfS6",
+      },
+      {
+        type: "heading",
+        text: "Como escolher entre eles",
+      },
+      {
+        type: "list",
+        items: [
+          "Bateria: priorize modelos com 5.000mAh ou mais se você usa o celular o dia inteiro fora de casa",
+          "Tela: 120Hz faz diferença perceptível na rolagem e nos jogos — vale mais que ganhar alguns MP a mais na câmera",
+          "Armazenamento: 128GB é o mínimo confortável hoje; 256GB evita dor de cabeça no futuro",
+          "Atualização de software: marcas como Samsung costumam garantir mais anos de atualização — importante para quem troca de celular com menos frequência",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "No fim, o melhor smartphone não é necessariamente o mais caro da lista — é o que combina com o seu uso real. Se você grava muito vídeo, priorize câmera e estabilização; se joga bastante, foque em processador; se é o uso do dia a dia, bateria e tela pesam mais que qualquer especificação técnica isolada.",
       },
     ],
   },

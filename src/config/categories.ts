@@ -131,7 +131,7 @@ export const STORES: Record<StoreId, StoreConfig> = {
     id: "amazon",
     label: "Amazon",
     // amzn.to é o encurtador oficial gerado pelo SiteStripe/Creators API.
-    hosts: ["amazon.com.br", "amzn.to"],
+    hosts: ["amazon.com.br", "amzn.to", "link.amazon"],
     badgeClass: "bg-amazon text-amazon-foreground",
     gradientVar: "var(--gradient-amazon)",
   },
@@ -489,5 +489,3 @@ export function buildConfigExport(): string {
   };
   return JSON.stringify(data, null, 2);
 }
-
-

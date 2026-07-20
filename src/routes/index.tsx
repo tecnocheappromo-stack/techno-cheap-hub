@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import {
   Flame,
   Sparkles,
@@ -14,13 +14,12 @@ import {
   TrendingUp,
   Package,
   MessageCircle,
-  BookOpen,
+  Bot,
   type LucideIcon,
 } from "lucide-react";
 import {
   ICONS,
   SITE_LINKS,
-  STORES,
   getCategories,
   getHighlights,
   safeHref,
@@ -33,9 +32,9 @@ import { trackEvent } from "@/lib/analytics";
 
 import type { MouseEvent } from "react";
 
-function guardClick(raw: string, store?: Category["store"]) {
+function guardClick(raw: string) {
   return (e: MouseEvent<HTMLAnchorElement>) => {
-    if (validateLink(raw, store).status !== "valid") {
+    if (validateLink(raw).status !== "valid") {
       e.preventDefault();
       if (typeof window !== "undefined") {
         console.warn("[Techno Cheap] Link inválido ou ainda não configurado:", raw);
@@ -47,17 +46,17 @@ function guardClick(raw: string, store?: Category["store"]) {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Techno Cheap | Achadinhos da Shopee e Mercado Livre" },
+      { title: "Techno Cheap | Achadinhos da Shopee" },
       {
         name: "description",
         content:
-          "Encontre produtos em oferta na Shopee e no Mercado Livre separados por categoria: tecnologia, projetores, fones, tablets, celulares, casa e muito mais.",
+          "Encontre produtos em oferta da Shopee separados por categoria: tecnologia, projetores, fones, tablets, celulares, casa e muito mais.",
       },
-      { property: "og:title", content: "Techno Cheap | Achadinhos da Shopee e Mercado Livre" },
+      { property: "og:title", content: "Techno Cheap | Achadinhos da Shopee" },
       {
         property: "og:description",
         content:
-          "Achadinhos selecionados em tecnologia, casa e eletrônicos nas maiores lojas online. Categorias diretas para o que apareceu no TikTok.",
+          "Achadinhos selecionados da Shopee em tecnologia, casa e eletrônicos. Categorias diretas para o que apareceu no TikTok.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -75,26 +74,15 @@ function TrustBadge({ icon: Icon, text }: { icon: LucideIcon; text: string }) {
   );
 }
 
-function StoreBadge({ store }: { store: Category["store"] }) {
-  const s = STORES[store];
-  return (
-    <span
-      className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full w-fit ${s.badgeClass}`}
-    >
-      {s.label}
-    </span>
-  );
-}
-
 function CategoryCard({ category }: { category: Category }) {
   const Icon = ICONS[category.icon];
-  const { name, description, cta, link, featured, store } = category;
+  const { name, description, cta, link, featured } = category;
   return (
     <a
-      href={safeHref(link, store)}
+      href={safeHref(link)}
       onClick={(e) => {
-        guardClick(link, store)(e);
-        trackEvent("click_category_card", { category_name: name, store });
+        guardClick(link)(e);
+        trackEvent("click_category_card", { category_name: name });
       }}
       target="_blank"
       rel="noopener noreferrer"
@@ -109,16 +97,17 @@ function CategoryCard({ category }: { category: Category }) {
         </span>
       )}
       <div
-        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 md:transition-transform md:duration-300 md:group-hover:scale-110"
+        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 md:transition-transform md:duration-300 md:group-hover:scale-110"
         style={{
-          background: STORES[store].gradientVar,
-          boxShadow: "0 8px 24px -8px oklch(0.3 0.12 255 / 0.35)",
+          background: featured ? "var(--gradient-shopee)" : "var(--gradient-icon)",
+          boxShadow: featured
+            ? "0 8px 24px -8px oklch(0.65 0.22 35 / 0.5)"
+            : "0 6px 20px -6px oklch(0.3 0.12 255 / 0.35)",
         }}
       >
         <Icon size={24} className="text-white" />
       </div>
-      <StoreBadge store={store} />
-      <h3 className="font-bold text-lg text-foreground leading-tight mt-2">{name}</h3>
+      <h3 className="font-bold text-lg text-foreground leading-tight">{name}</h3>
       <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">{description}</p>
       <div className="mt-5 inline-flex items-center gap-2 font-semibold text-sm text-primary md:group-hover:gap-3 md:transition-all">
         {cta}
@@ -130,36 +119,34 @@ function CategoryCard({ category }: { category: Category }) {
 
 function HighlightCard({ category }: { category: Category }) {
   const Icon = ICONS[category.icon];
-  const { store } = category;
   return (
     <div
       className="group flex flex-col p-6 rounded-3xl bg-card border border-border md:transition-all md:duration-300 md:hover:-translate-y-1.5 md:hover:shadow-lg"
       style={{ boxShadow: "var(--shadow-card)" }}
     >
       <div
-        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
+        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
         style={{
-          background: STORES[store].gradientVar,
+          background: "var(--gradient-shopee)",
           boxShadow: "0 8px 24px -8px oklch(0.65 0.22 35 / 0.45)",
         }}
       >
         <Icon size={26} className="text-white" />
       </div>
-      <StoreBadge store={store} />
-      <h3 className="font-black text-xl text-foreground mt-2">{category.name}</h3>
+      <h3 className="font-black text-xl text-foreground">{category.name}</h3>
       <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">
         {category.description}
       </p>
       <a
-        href={safeHref(category.link, store)}
+        href={safeHref(category.link)}
         onClick={(e) => {
-          guardClick(category.link, store)(e);
+          guardClick(category.link)(e);
           trackEvent("click_cta_button", { button_text: `${category.name} — ${category.cta}` });
         }}
         target="_blank"
         rel="noopener noreferrer"
         className="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-2xl font-bold text-sm text-white md:transition-all md:hover:scale-[1.02] active:scale-[0.98]"
-        style={{ background: STORES[store].gradientVar, boxShadow: "var(--shadow-glow-sm)" }}
+        style={{ background: "var(--gradient-shopee)", boxShadow: "var(--shadow-glow-sm)" }}
       >
         {category.cta}
         <ArrowRight size={16} />
@@ -204,6 +191,7 @@ function Index() {
   const mainVideoLink = overrides["SITE_LINKS.mainVideo"] ?? SITE_LINKS.mainVideo;
   const fullShopLink = overrides["SITE_LINKS.fullShop"] ?? SITE_LINKS.fullShop;
   const whatsappLink = overrides["SITE_LINKS.whatsappGroup"] ?? SITE_LINKS.whatsappGroup;
+  const telegramBotLink = overrides["SITE_LINKS.telegramBot"] ?? SITE_LINKS.telegramBot;
 
 
   return (
@@ -229,22 +217,14 @@ function Index() {
             </div>
             <span className="font-bold text-lg tracking-tight">Techno Cheap</span>
           </div>
-          <div className="flex items-center gap-2 sm:gap-3">
-            <Link
-              to="/artigos"
-              className="inline-flex items-center gap-1.5 text-[11px] font-semibold bg-white/10 backdrop-blur px-3 py-1.5 rounded-full border border-white/15 hover:bg-white/15 md:transition-colors"
-            >
-              <BookOpen size={13} /> Artigos
-            </Link>
-            <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] font-semibold bg-white/10 backdrop-blur px-3 py-1.5 rounded-full border border-white/15">
-              <ShoppingBag size={13} /> Shopee · Mercado Livre
-            </span>
-          </div>
+          <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] font-semibold bg-white/10 backdrop-blur px-3 py-1.5 rounded-full border border-white/15">
+            <ShoppingBag size={13} /> Achadinhos da Shopee
+          </span>
         </nav>
 
         <div className="relative z-10 max-w-3xl mx-auto px-5 pt-10 pb-16 md:pt-16 md:pb-24 text-center">
           <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
-            <TrustBadge icon={Star} text="Links verificados" />
+            <TrustBadge icon={Star} text="Links verificados da Shopee" />
             <TrustBadge icon={Users} text="+10 mil acessos" />
             <TrustBadge icon={TrendingUp} text="Atualizado toda semana" />
           </div>
@@ -259,8 +239,8 @@ function Index() {
           </h1>
 
           <p className="mt-5 text-base sm:text-lg text-white/80 max-w-lg mx-auto leading-relaxed">
-            Produtos em oferta na Shopee e no Mercado Livre, separados por categoria para
-            você encontrar rápido o que apareceu no TikTok.
+            Produtos em oferta direto da Shopee, separados por categoria para você encontrar rápido
+            o que apareceu no TikTok.
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-4">
@@ -294,7 +274,7 @@ function Index() {
               <ArrowRight size={18} className="md:group-hover:translate-x-1 md:transition-transform" />
             </a>
             <p className="text-[11px] text-white/50 max-w-xs leading-relaxed">
-              Os preços e estoques podem mudar dentro de cada loja. Confira sempre antes de comprar.
+              Os preços e estoques podem mudar dentro da Shopee. Confira sempre antes de comprar.
             </p>
           </div>
         </div>
@@ -332,6 +312,38 @@ function Index() {
         </div>
       </section>
 
+      {/* CARROSSEL BOT CTA */}
+      <section className="max-w-4xl mx-auto px-5 py-12 md:py-16">
+        <div className="flex flex-col sm:flex-row items-center gap-6 p-6 md:p-8 rounded-3xl bg-card border border-border" style={{ boxShadow: "var(--shadow-card)" }}>
+          <div className="shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: "var(--gradient-shopee)", boxShadow: "0 8px 24px -8px oklch(0.65 0.22 35 / 0.45)" }}>
+            <Bot size={26} className="text-white" />
+          </div>
+          <div className="flex-1 text-center sm:text-left">
+            <h2 className="text-xl md:text-2xl font-black tracking-tight text-foreground">
+              Crie carrosséis virais para o TikTok
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+              Gere carrosséis profissionais com IA em segundos — texto, roteiros e hashtags otimizados. Gratuito para começar.
+            </p>
+          </div>
+          <a
+            href={safeHref(telegramBotLink)}
+            onClick={(e) => {
+              guardClick(telegramBotLink)(e);
+              trackEvent("click_cta_button", { button_text: "Criar carrossel no Telegram" });
+            }}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-bold text-sm text-white md:transition-all md:hover:scale-[1.02] active:scale-[0.98]"
+            style={{ background: "var(--gradient-shopee)", boxShadow: "var(--shadow-glow-sm)" }}
+          >
+            <Bot size={18} />
+            Criar carrossel Grátis
+            <ArrowRight size={16} />
+          </a>
+        </div>
+      </section>
+
       {/* CATEGORIES */}
       <section className="max-w-6xl mx-auto px-5 py-16 md:py-24">
         <div className="text-center mb-12">
@@ -342,8 +354,7 @@ function Index() {
             Escolha uma categoria
           </h2>
           <p className="mt-3 text-muted-foreground max-w-md mx-auto text-base leading-relaxed">
-            Clique na categoria que você quer ver e acesse as ofertas direto na loja oficial —
-            Shopee ou Mercado Livre.
+            Clique na categoria que você quer ver e acesse as ofertas direto na Shopee.
           </p>
         </div>
 
@@ -396,17 +407,17 @@ function Index() {
           <StepCard
             icon={ArrowRight}
             title="2. Acesse"
-            text="O botão leva direto para a página oficial da loja."
+            text="O botão leva direto para a página da Shopee."
           />
           <StepCard
             icon={Truck}
             title="3. Confira"
-            text="Verifique preço, frete e estoque dentro da loja."
+            text="Verifique preço, frete e estoque dentro da Shopee."
           />
           <StepCard
             icon={ShieldCheck}
             title="4. Compre"
-            text="Finalize com segurança pela própria loja."
+            text="Finalize com segurança pela própria Shopee."
           />
         </div>
 
@@ -468,11 +479,11 @@ function Index() {
           <span className="font-bold text-foreground text-lg">Techno Cheap</span>
         </div>
         <p className="text-xs text-muted-foreground">
-          Tudo que você precisa em um só lugar · Shopee e Mercado Livre
+          Tudo que você precisa em um só lugar · Achadinhos da Shopee
         </p>
         <div className="mt-4 flex items-center justify-center gap-1.5 text-[10px] text-muted-foreground">
           <ShieldCheck size={12} />
-          Links verificados · Compra segura nas lojas oficiais
+          Links verificados · Compra segura pela Shopee
         </div>
       </footer>
 

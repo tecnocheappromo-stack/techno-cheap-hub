@@ -11,9 +11,9 @@
  *  COMO EDITAR
  *  ----------------------------------------------------------
  *  1. Encontre a categoria que deseja alterar abaixo.
- *  2. Troque o valor de `link` pelo link real (de afiliado) da loja.
+ *  2. Troque o valor de `link` pelo link real da Shopee.
  *  3. Se quiser, edite também `name`, `description`, `cta`,
- *     `icon`, `store` ou `order`.
+ *     `icon` ou `order`.
  *  4. Salve o arquivo — a página atualiza automaticamente.
  *
  *  ----------------------------------------------------------
@@ -23,9 +23,7 @@
  *  - name         nome exibido no card
  *  - description  texto curto abaixo do nome
  *  - cta          texto do botão do card
- *  - store        "shopee" | "mercadolivre" | "amazon" — define
- *                 quais domínios são aceitos em `link` e a cor do selo
- *  - link         URL da loja (de preferência já com seu link de afiliado)
+ *  - link         URL da Shopee (afiliado)
  *  - icon         nome do ícone (veja lista de ícones abaixo)
  *  - order        ordem de exibição (1 aparece primeiro)
  *  - featured     true para destacar como "Em alta"
@@ -81,94 +79,32 @@ export const ICONS = {
 export type IconName = keyof typeof ICONS;
 
 /* ============================================================
- *  LOJAS SUPORTADAS
- * ============================================================
- *  Cada categoria pertence a UMA loja. Isso controla:
- *   - quais domínios são aceitos no link daquela categoria
- *   - a cor/selo mostrado no card
- *
- *  Para adicionar uma nova loja no futuro, basta acrescentar
- *  uma entrada aqui (e as cores correspondentes em styles.css).
- * ============================================================ */
-export type StoreId = "shopee" | "mercadolivre" | "amazon";
-
-export type StoreConfig = {
-  id: StoreId;
-  label: string;
-  /** Domínios https aceitos para links de produto/afiliado dessa loja */
-  hosts: readonly string[];
-  /** Classe Tailwind (usa as cores registradas em styles.css) para o selo do card */
-  badgeClass: string;
-  /** CSS var usada no ícone/CTA do card */
-  gradientVar: string;
-};
-
-export const STORES: Record<StoreId, StoreConfig> = {
-  shopee: {
-    id: "shopee",
-    label: "Shopee",
-    hosts: ["shopee.com.br", "s.shopee.com.br", "shp.ee", "collshp.com"],
-    badgeClass: "bg-shopee text-shopee-foreground",
-    gradientVar: "var(--gradient-shopee)",
-  },
-  mercadolivre: {
-    id: "mercadolivre",
-    label: "Mercado Livre",
-    // Links de afiliado ML costumam ser a própria URL do produto/loja com
-    // parâmetros de rastreio, ou o link curto gerado no Portal do Afiliado.
-    hosts: [
-      "mercadolivre.com.br",
-      "mercadolivre.com",
-      "produto.mercadolivre.com.br",
-      "lista.mercadolivre.com.br",
-      "mercadopago.com.br",
-      "meli.la",
-    ],
-    badgeClass: "bg-mercadolivre text-mercadolivre-foreground",
-    gradientVar: "var(--gradient-mercadolivre)",
-  },
-  amazon: {
-    id: "amazon",
-    label: "Amazon",
-    // amzn.to é o encurtador oficial gerado pelo SiteStripe/Creators API.
-    hosts: ["amazon.com.br", "amzn.to", "link.amazon"],
-    badgeClass: "bg-amazon text-amazon-foreground",
-    gradientVar: "var(--gradient-amazon)",
-  },
-};
-
-export const STORE_IDS = Object.keys(STORES) as StoreId[];
-
-/** Domínios aceitos que não são "loja" (ex.: grupo do WhatsApp). */
-const OTHER_ALLOWED_HOSTS = ["chat.whatsapp.com", "whatsapp.com"] as const;
-
-/* ============================================================
  *  VALIDAÇÃO DE LINKS
  * ============================================================
  *  Aceitamos apenas:
  *   - O placeholder "COLOCAR_LINK_AQUI" (link ainda não definido)
- *   - URLs https dos domínios oficiais da loja informada
- *     (ou de qualquer loja + WhatsApp, se nenhuma loja for passada)
+ *   - URLs https das hosts oficiais da Shopee:
+ *       shopee.com.br, s.shopee.com.br, shp.ee
  * ============================================================ */
 export const LINK_PLACEHOLDER = "COLOCAR_LINK_AQUI";
 
-/** Mantido por compatibilidade: lista de todos os domínios aceitos, de todas as lojas. */
 export const ALLOWED_LINK_HOSTS = [
-  ...STORE_IDS.flatMap((s) => STORES[s].hosts),
-  ...OTHER_ALLOWED_HOSTS,
-];
-
-export function allowedHostsFor(store?: StoreId): readonly string[] {
-  if (store) return STORES[store].hosts;
-  return ALLOWED_LINK_HOSTS;
-}
+  "shopee.com.br",
+  "s.shopee.com.br",
+  "shp.ee",
+  "collshp.com",
+  "chat.whatsapp.com",
+  "whatsapp.com",
+  "t.me",
+  "telegram.me",
+] as const;
 
 export type LinkValidation =
   | { status: "placeholder"; message: string }
   | { status: "valid"; url: string }
   | { status: "invalid"; message: string };
 
-export function validateLink(raw: string, store?: StoreId): LinkValidation {
+export function validateLink(raw: string): LinkValidation {
   const value = (raw ?? "").trim();
   if (!value || value === LINK_PLACEHOLDER) {
     return { status: "placeholder", message: "Link ainda não definido" };
@@ -183,56 +119,53 @@ export function validateLink(raw: string, store?: StoreId): LinkValidation {
     return { status: "invalid", message: "Use HTTPS" };
   }
   const host = parsed.hostname.toLowerCase().replace(/^www\./, "");
-  const hosts = allowedHostsFor(store);
-  const ok = hosts.some((h) => host === h || host.endsWith("." + h));
+  const ok = ALLOWED_LINK_HOSTS.some(
+    (h) => host === h || host.endsWith("." + h),
+  );
   if (!ok) {
-    const storeLabel = store ? STORES[store].label : "uma loja compatível";
     return {
       status: "invalid",
-      message: `Domínio não permitido (${host}). Use um link oficial de ${storeLabel}.`,
+      message: `Domínio não permitido (${host}). Use Shopee.`,
     };
   }
   return { status: "valid", url: parsed.toString() };
 }
 
 /** URL segura para usar em href: "#" quando inválida ou placeholder. */
-export function safeHref(raw: string, store?: StoreId): string {
-  const v = validateLink(raw, store);
+export function safeHref(raw: string): string {
+  const v = validateLink(raw);
   return v.status === "valid" ? v.url : "#";
 }
 
-const storeSchema = z.enum(STORE_IDS as [StoreId, ...StoreId[]], {
-  message: "Loja inválida",
-});
+const linkSchema = z
+  .string()
+  .trim()
+  .max(2048, "Link muito longo")
+  .refine((v) => {
+    const r = validateLink(v);
+    return r.status === "valid" || r.status === "placeholder";
+  }, "Link inválido — use uma URL https da Shopee ou o placeholder COLOCAR_LINK_AQUI");
 
 const iconSchema = z.enum(Object.keys(ICONS) as [IconName, ...IconName[]], {
   message: "Ícone inválido",
 });
 
-export const categorySchema = z
-  .object({
-    id: z
-      .string()
-      .trim()
-      .min(1, "id obrigatório")
-      .max(50, "id muito longo")
-      .regex(/^[a-z0-9-]+$/, "id deve ser minúsculo, sem espaços (use - para separar)"),
-    name: z.string().trim().min(1, "Nome obrigatório").max(60, "Nome muito longo"),
-    description: z.string().trim().min(1, "Descrição obrigatória").max(200, "Descrição muito longa"),
-    cta: z.string().trim().min(1, "CTA obrigatório").max(40, "CTA muito longo"),
-    store: storeSchema,
-    link: z.string().trim().max(2048, "Link muito longo"),
-    icon: iconSchema,
-    order: z.number().int().min(1).max(999),
-    featured: z.boolean().optional(),
-    showInHighlights: z.boolean().optional(),
-  })
-  .superRefine((data, ctx) => {
-    const r = validateLink(data.link, data.store);
-    if (r.status === "invalid") {
-      ctx.addIssue({ code: "custom", path: ["link"], message: r.message });
-    }
-  });
+export const categorySchema = z.object({
+  id: z
+    .string()
+    .trim()
+    .min(1, "id obrigatório")
+    .max(50, "id muito longo")
+    .regex(/^[a-z0-9-]+$/, "id deve ser minúsculo, sem espaços (use - para separar)"),
+  name: z.string().trim().min(1, "Nome obrigatório").max(60, "Nome muito longo"),
+  description: z.string().trim().min(1, "Descrição obrigatória").max(200, "Descrição muito longa"),
+  cta: z.string().trim().min(1, "CTA obrigatório").max(40, "CTA muito longo"),
+  link: linkSchema,
+  icon: iconSchema,
+  order: z.number().int().min(1).max(999),
+  featured: z.boolean().optional(),
+  showInHighlights: z.boolean().optional(),
+});
 
 export type Category = z.infer<typeof categorySchema>;
 
@@ -246,6 +179,8 @@ export const SITE_LINKS = {
   fullShop: "COLOCAR_LINK_AQUI",
   // Grupo do WhatsApp
   whatsappGroup: "https://chat.whatsapp.com/D7Hy7JmpQUGEFGzAOLt8Bc?s=cl&p=a&ilr=0",
+  // Bot do Telegram
+  telegramBot: "https://t.me/SeuCarrosselBot",
 };
 
 /* ============================================================
@@ -258,7 +193,6 @@ export const CATEGORIES: Category[] = [
     name: "Produtos dos vídeos",
     description: "Veja os produtos que apareceram nos vídeos recentes do TikTok.",
     cta: "Ver produtos dos vídeos",
-    store: "shopee",
     link: "https://collshp.com/technocheap/category/3861778?view=storefront",
     icon: "Sparkles",
     order: 1,
@@ -269,7 +203,6 @@ export const CATEGORIES: Category[] = [
     name: "Projetores",
     description: "Mini projetores e acessórios para assistir filmes, séries e futebol.",
     cta: "Ver projetores",
-    store: "shopee",
     link: "https://collshp.com/technocheap/category/3760310?view=storefront",
     icon: "Projector",
     order: 2,
@@ -280,7 +213,6 @@ export const CATEGORIES: Category[] = [
     name: "Fones Bluetooth",
     description: "Fones sem fio, modelos custo-benefício e achadinhos do dia a dia.",
     cta: "Ver fones",
-    store: "shopee",
     link: "https://collshp.com/technocheap/category/3766799?view=storefront",
     icon: "Headphones",
     order: 3,
@@ -291,7 +223,6 @@ export const CATEGORIES: Category[] = [
     name: "Tablets",
     description: "Tablets para estudo, vídeos, trabalho e uso diário em oferta.",
     cta: "Ver tablets",
-    store: "shopee",
     link: "https://collshp.com/technocheap/category/3841978?view=storefront",
     icon: "Tablet",
     order: 4,
@@ -301,7 +232,6 @@ export const CATEGORIES: Category[] = [
     name: "Celulares",
     description: "Smartphones, capas, carregadores e acessórios úteis para celular.",
     cta: "Ver celulares",
-    store: "shopee",
     link: "https://collshp.com/technocheap/category/3760315?view=storefront",
     icon: "Smartphone",
     order: 5,
@@ -311,7 +241,6 @@ export const CATEGORIES: Category[] = [
     name: "Smart TVs",
     description: "Ofertas em TVs e telas para entretenimento em casa.",
     cta: "Ver Smart TVs",
-    store: "shopee",
     link: "https://collshp.com/technocheap/category/3760320?view=storefront",
     icon: "Tv",
     order: 6,
@@ -321,7 +250,6 @@ export const CATEGORIES: Category[] = [
     name: "Casa",
     description: "Itens para deixar sua casa mais prática, bonita e confortável.",
     cta: "Ver casa",
-    store: "shopee",
     link: "https://collshp.com/technocheap/category/3766803?view=storefront",
     icon: "Home",
     order: 7,
@@ -331,36 +259,9 @@ export const CATEGORIES: Category[] = [
     name: "Eletros",
     description: "Fogões, eletrodomésticos e produtos úteis para cozinha e casa.",
     cta: "Ver eletros",
-    store: "shopee",
     link: "https://collshp.com/technocheap/category/3760316?view=storefront",
     icon: "Microwave",
     order: 8,
-  },
-
-  /* --------------------------------------------------------
-   *  MERCADO LIVRE
-   *  Troque o link de cada categoria abaixo pelo link gerado
-   *  no Portal do Afiliado do Mercado Livre (após aprovação).
-   * -------------------------------------------------------- */
-  {
-    id: "ml-eletronicos",
-    name: "Eletrônicos ML",
-    description: "Celulares, tablets e eletrônicos com ofertas no Mercado Livre.",
-    cta: "Ver no Mercado Livre",
-    store: "mercadolivre",
-    link: "https://meli.la/1DRaGZv",
-    icon: "Smartphone",
-    order: 9,
-  },
-  {
-    id: "ml-casa",
-    name: "Casa ML",
-    description: "Itens para casa e eletrodomésticos com bom custo-benefício.",
-    cta: "Ver no Mercado Livre",
-    store: "mercadolivre",
-    link: "https://meli.la/2UqLU9K",
-    icon: "Home",
-    order: 10,
   },
 ];
 
@@ -479,7 +380,6 @@ export function buildConfigExport(): string {
       name: c.name,
       description: c.description,
       cta: c.cta,
-      store: c.store,
       link: overrides[c.id] ?? c.link,
       icon: c.icon,
       order: c.order,
@@ -489,3 +389,5 @@ export function buildConfigExport(): string {
   };
   return JSON.stringify(data, null, 2);
 }
+
+

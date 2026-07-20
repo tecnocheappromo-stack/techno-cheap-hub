@@ -32,16 +32,10 @@
   --color-ring: var(--ring);
   --color-shopee: var(--shopee);
   --color-shopee-foreground: var(--shopee-foreground);
-  --color-mercadolivre: var(--mercadolivre);
-  --color-mercadolivre-foreground: var(--mercadolivre-foreground);
-  --color-amazon: var(--amazon);
-  --color-amazon-foreground: var(--amazon-foreground);
   --color-brand-blue: var(--brand-blue);
   --color-brand-blue-deep: var(--brand-blue-deep);
   --gradient-hero: var(--gradient-hero);
   --gradient-shopee: var(--gradient-shopee);
-  --gradient-mercadolivre: var(--gradient-mercadolivre);
-  --gradient-amazon: var(--gradient-amazon);
   --gradient-icon: var(--gradient-icon);
   --shadow-card: var(--shadow-card);
   --shadow-card-featured: var(--shadow-card-featured);
@@ -84,21 +78,11 @@
   --shopee: oklch(0.68 0.22 35);
   --shopee-foreground: oklch(1 0 0);
 
-  /* Mercado Livre yellow, with deep blue text for contrast (matches ML brand pairing) */
-  --mercadolivre: oklch(0.87 0.19 96);
-  --mercadolivre-foreground: oklch(0.24 0.09 255);
-
-  /* Amazon black + signature orange */
-  --amazon: oklch(0.7 0.18 55);
-  --amazon-foreground: oklch(1 0 0);
-
   --brand-blue: oklch(0.52 0.18 255);
   --brand-blue-deep: oklch(0.26 0.14 260);
 
   --gradient-hero: linear-gradient(145deg, oklch(0.18 0.14 260) 0%, oklch(0.28 0.18 255) 40%, oklch(0.42 0.2 250) 100%);
   --gradient-shopee: linear-gradient(135deg, oklch(0.72 0.22 40) 0%, oklch(0.6 0.25 27) 100%);
-  --gradient-mercadolivre: linear-gradient(135deg, oklch(0.87 0.19 96) 0%, oklch(0.52 0.18 255) 100%);
-  --gradient-amazon: linear-gradient(135deg, oklch(0.2 0.02 260) 0%, oklch(0.7 0.18 55) 100%);
   --gradient-icon: linear-gradient(135deg, oklch(0.5 0.18 255) 0%, oklch(0.35 0.16 260) 100%);
 
   --shadow-card: 0 8px 30px -10px oklch(0.3 0.1 260 / 0.12);

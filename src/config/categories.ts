@@ -79,6 +79,46 @@ export const ICONS = {
 export type IconName = keyof typeof ICONS;
 
 /* ============================================================
+ *  LOJAS SUPORTADAS
+ * ============================================================
+ *  Mantido por compatibilidade com artigos.ts. O site é Shopee-only,
+ *  mas o campo `store` ainda existe nos blocos CTA dos artigos.
+ * ============================================================ */
+export type StoreId = "shopee" | "mercadolivre" | "amazon";
+
+export type StoreConfig = {
+  id: StoreId;
+  label: string;
+  hosts: readonly string[];
+  badgeClass: string;
+  gradientVar: string;
+};
+
+export const STORES: Record<StoreId, StoreConfig> = {
+  shopee: {
+    id: "shopee",
+    label: "Shopee",
+    hosts: ["shopee.com.br", "s.shopee.com.br", "shp.ee", "collshp.com"],
+    badgeClass: "bg-shopee text-shopee-foreground",
+    gradientVar: "var(--gradient-shopee)",
+  },
+  mercadolivre: {
+    id: "mercadolivre",
+    label: "Mercado Livre",
+    hosts: ["mercadolivre.com.br", "mercadolivre.com"],
+    badgeClass: "bg-amber-500 text-amber-900",
+    gradientVar: "var(--gradient-shopee)",
+  },
+  amazon: {
+    id: "amazon",
+    label: "Amazon",
+    hosts: ["amazon.com.br", "amazon.com"],
+    badgeClass: "bg-orange-500 text-white",
+    gradientVar: "var(--gradient-shopee)",
+  },
+};
+
+/* ============================================================
  *  VALIDAÇÃO DE LINKS
  * ============================================================
  *  Aceitamos apenas:
@@ -104,7 +144,7 @@ export type LinkValidation =
   | { status: "valid"; url: string }
   | { status: "invalid"; message: string };
 
-export function validateLink(raw: string): LinkValidation {
+export function validateLink(raw: string, store?: StoreId): LinkValidation {
   const value = (raw ?? "").trim();
   if (!value || value === LINK_PLACEHOLDER) {
     return { status: "placeholder", message: "Link ainda não definido" };
@@ -119,9 +159,12 @@ export function validateLink(raw: string): LinkValidation {
     return { status: "invalid", message: "Use HTTPS" };
   }
   const host = parsed.hostname.toLowerCase().replace(/^www\./, "");
-  const ok = ALLOWED_LINK_HOSTS.some(
+  // Se uma loja específica foi passada, valida contra os hosts dela;
+  // senão, valida contra a lista global.
+  const allowedHosts = store && STORES[store] ? STORES[store].hosts : ALLOWED_LINK_HOSTS;
+  const ok = allowedHosts.some(
     (h) => host === h || host.endsWith("." + h),
-  );
+  ) || ALLOWED_LINK_HOSTS.some((h) => host === h || host.endsWith("." + h));
   if (!ok) {
     return {
       status: "invalid",
@@ -132,8 +175,8 @@ export function validateLink(raw: string): LinkValidation {
 }
 
 /** URL segura para usar em href: "#" quando inválida ou placeholder. */
-export function safeHref(raw: string): string {
-  const v = validateLink(raw);
+export function safeHref(raw: string, store?: StoreId): string {
+  const v = validateLink(raw, store);
   return v.status === "valid" ? v.url : "#";
 }
 

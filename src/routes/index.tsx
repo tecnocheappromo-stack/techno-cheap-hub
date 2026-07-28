@@ -35,8 +35,9 @@ import { AdminPanel } from "@/components/AdminPanel";
 import { useLinkOverrides } from "@/hooks/use-link-overrides";
 import { trackEvent } from "@/lib/analytics";
 
-import type { MouseEvent } from "react";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, type MouseEvent } from "react";
+
+function guardClick(raw: string) {
   return (e: MouseEvent<HTMLAnchorElement>) => {
     if (validateLink(raw).status !== "valid") {
       e.preventDefault();

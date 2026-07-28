@@ -1488,7 +1488,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta na Amazon",
         store: "amazon",
         link: "https://www.amazon.com.br/Tomada-Inteligente-Wi-FI-Intelbras-Preto/dp/B0GPXB3MQM?source=ps-sl-shoppingads-lpcontext&psc=1&smid=A1ZZFT5FULY4LN&linkCode=ll2&tag=tecnocheap05-20&linkId=5fddad4b515fa3979bede2ed7c035ed9&ref_=as_li_ss_tl",
-        image: "https://http2.mlstatic.com/D_NQ_NP_645297-MLA99992011927_112025-O.webp",
+        image: "",
       },
       {
         type: "heading",

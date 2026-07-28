@@ -670,7 +670,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta",
         store: "amazon",
         link: "https://www.amazon.com.br/Cancelamento-W820NB-Bluetooth-OVER-EAR-EDIFIER/dp/B09MDC77QX?tag=tecnocheap05-20&linkCode=ll2",
-        image: "https://m.media-amazon.com/images/I/41S8sd4HNTL._AC_SX679_.jpg",
+        image: "",
       },
       {
         type: "heading",

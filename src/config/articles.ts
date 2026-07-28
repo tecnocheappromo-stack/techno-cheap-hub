@@ -193,7 +193,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver projetores em oferta",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3760310?view=storefront",
-        image: "https://http2.mlstatic.com/D_NQ_NP_608549-MLB10065424959_092025-O.webp",
+        image: "https://m.media-amazon.com/images/I/31LKxHbkhcL._AC_SX679_.jpg",
       },
     ],
   },
@@ -378,7 +378,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta",
         store: "shopee",
         link: "https://s.shopee.com.br/7KvIv30nuT",
-        image: "https://http2.mlstatic.com/D_NQ_NP_612345-MLA100036810051_122025-O.webp",
+        image: "https://m.media-amazon.com/images/I/312SDUe3w4L._AC_SX679_.jpg",
       },
       {
         type: "cta",
@@ -387,7 +387,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta",
         store: "amazon",
         link: "https://www.amazon.com.br/Logitech-SUPERLIGHT-Tecnologia-program%C3%A1veis-Recarreg%C3%A1vel/dp/B0CJ9NXG41?tag=tecnocheap05-20&linkCode=ll2",
-        image: "https://http2.mlstatic.com/D_NQ_NP_602345-MLA99938157613_112025-O.webp",
+        image: "https://m.media-amazon.com/images/I/21FSCZeYQ1L._AC_SX679_.jpg",
       },
       {
         type: "heading",
@@ -494,7 +494,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver fones",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3766799?view=storefront",
-        image: "https://http2.mlstatic.com/D_NQ_NP_634592-MLA95703465240_102025-O.webp",
+        image: "https://m.media-amazon.com/images/I/41CEMFkcQxL._AC_SX679_.jpg",
       },
       {
         type: "heading",
@@ -544,7 +544,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver projetores",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3760310?view=storefront",
-        image: "https://http2.mlstatic.com/D_NQ_NP_608549-MLB10065424959_092025-O.webp",
+        image: "https://m.media-amazon.com/images/I/31LKxHbkhcL._AC_SX679_.jpg",
       },
       {
         type: "heading",
@@ -654,7 +654,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta",
         store: "shopee",
         link: "https://s.shopee.com.br/9pPwjxCBQi",
-        image: "https://http2.mlstatic.com/D_NQ_NP_634592-MLA95703465240_102025-O.webp",
+        image: "https://m.media-amazon.com/images/I/41CEMFkcQxL._AC_SX679_.jpg",
       },
       {
         type: "heading",
@@ -669,7 +669,7 @@ export const ARTICLES: Article[] = [
         title: "Edifier W820NB Plus",
         text: "Over-ear com ANC, 49h de bateria e codec LDAC.",
         buttonLabel: "Ver oferta",
-        store: "mercadolivre",
+        store: "amazon",
         link: "https://www.amazon.com.br/Cancelamento-W820NB-Bluetooth-OVER-EAR-EDIFIER/dp/B09MDC77QX?tag=tecnocheap05-20&linkCode=ll2",
         image: "https://http2.mlstatic.com/D_NQ_NP_969012-MLA99938157613_112025-O.webp",
       },
@@ -706,7 +706,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver fones Bluetooth",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3766799?view=storefront",
-        image: "https://http2.mlstatic.com/D_NQ_NP_608549-MLB10065424959_092025-O.webp",
+        image: "https://m.media-amazon.com/images/I/31LKxHbkhcL._AC_SX679_.jpg",
       },
       {
         type: "paragraph",
@@ -1293,7 +1293,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta na Amazon",
         store: "amazon",
         link: "https://www.amazon.com.br/Notebook-Samsung-Windows-Snapdragon%C2%AE-integrado/dp/B0FCMXNR2K?&linkCode=ll2&tag=tecnocheap05-20&linkId=e5e1867e2c6c653ea3e32ae82d70edb8&ref_=as_li_ss_tl",
-        image: "https://http2.mlstatic.com/D_NQ_NP_951167-MLA100891973563_112025-O.webp",
+        image: "https://m.media-amazon.com/images/I/21GS7yII8aL._AC_SX679_.jpg",
       },
       {
         type: "heading",
@@ -1458,7 +1458,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta na Amazon",
         store: "amazon",
         link: "https://www.amazon.com.br/L%C3%A2mpada-Positivo-Casa-Inteligente-Compat%C3%ADvel/dp/B082FTRR76?th=1&linkCode=ll2&tag=tecnocheap05-20&linkId=4333064ec35a8cbb408c8a39bf5b8176&ref_=as_li_ss_tl",
-        image: "https://http2.mlstatic.com/D_NQ_NP_755547-MLB78768137583_092024-O.webp",
+        image: "https://m.media-amazon.com/images/I/31Az2WYp7cL._AC_SX679_.jpg",
       },
       {
         type: "heading",
@@ -1489,7 +1489,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta na Amazon",
         store: "amazon",
         link: "https://www.amazon.com.br/Tomada-Inteligente-Wi-FI-Intelbras-Preto/dp/B0GPXB3MQM?source=ps-sl-shoppingads-lpcontext&psc=1&smid=A1ZZFT5FULY4LN&linkCode=ll2&tag=tecnocheap05-20&linkId=5fddad4b515fa3979bede2ed7c035ed9&ref_=as_li_ss_tl",
-        image: "https://http2.mlstatic.com/D_NQ_NP_790127-MLB78938972692_092024-O.webp",
+        image: "https://m.media-amazon.com/images/I/41CEMFkcQxL._AC_SX679_.jpg",
       },
       {
         type: "heading",

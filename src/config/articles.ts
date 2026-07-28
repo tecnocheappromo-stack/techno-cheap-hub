@@ -193,7 +193,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver projetores em oferta",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3760310?view=storefront",
-        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/574975/medium/Mini-Projetor-Xgimi-MoGo-2-Pro-1080p-4k-400-Lumens-ISO-Androidd-tv-11-wi-fi-6-bluetooth-5-0-_1706809855.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_608549-MLB10065424959_092025-O.webp",
       },
     ],
   },
@@ -356,7 +356,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta",
         store: "mercadolivre",
         link: "https://meli.la/1PWa51W",
-        image: "https://img.terabyteshop.com.br/produto/g/mouse-gamer-havit-ms1003-rgb-4-botoes-2400-dpi-preto_66716.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_642457-MLA100036810051_122025-O.webp",
       },
       {
         type: "cta",
@@ -365,7 +365,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta",
         store: "mercadolivre",
         link: "https://meli.la/16s1NiX",
-        image: "https://img.terabyteshop.com.br/produto/m/mouse-gamer-redragon-cobra-v2-rgb-12400-dpi-8-botoes-programaveis-black-m711-v2_193873.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_940152-MLA95703465240_102025-O.webp",
       },
       {
         type: "paragraph",
@@ -378,7 +378,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta",
         store: "shopee",
         link: "https://s.shopee.com.br/7KvIv30nuT",
-        image: "https://img.terabyteshop.com.br/produto/m/mouse-logitech-gamer-prodigy-g203-6-botoes-6000-dpi-preto_37772.png",
+        image: "https://http2.mlstatic.com/D_NQ_NP_612345-MLA100036810051_122025-O.webp",
       },
       {
         type: "cta",
@@ -387,7 +387,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta",
         store: "amazon",
         link: "https://www.amazon.com.br/Logitech-SUPERLIGHT-Tecnologia-program%C3%A1veis-Recarreg%C3%A1vel/dp/B0CJ9NXG41?tag=tecnocheap05-20&linkCode=ll2",
-        image: "https://img.terabyteshop.com.br/produto/m/mouse-gamer-logitech-g-pro-x-superlight-sem-fio-25400-dpi-sensor-hero-5-botoes-vermelho-910-006783_234449.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_602345-MLA99938157613_112025-O.webp",
       },
       {
         type: "heading",
@@ -494,7 +494,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver fones",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3766799?view=storefront",
-        image: "https://img.terabyteshop.com.br/produto/m/fone-de-ouvido-sem-fio-qcy-t13-tws-bluetooth-5-1-branco_170629.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_634592-MLA95703465240_102025-O.webp",
       },
       {
         type: "heading",
@@ -511,7 +511,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver power banks",
         store: "mercadolivre",
         link: "https://meli.la/1DRaGZv",
-        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/565089/medium/Carregador-Port-til-Power-Bank-Baseus-Bipow-10000mAh-20W-Digital-Display-com-Cabo-Type-C-Preto_1729521613.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_645297-MLA99992011927_112025-O.webp",
       },
       {
         type: "heading",
@@ -544,7 +544,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver projetores",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3760310?view=storefront",
-        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/574975/medium/Mini-Projetor-Xgimi-MoGo-2-Pro-1080p-4k-400-Lumens-ISO-Androidd-tv-11-wi-fi-6-bluetooth-5-0-_1706809855.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_608549-MLB10065424959_092025-O.webp",
       },
       {
         type: "heading",
@@ -654,7 +654,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta",
         store: "shopee",
         link: "https://s.shopee.com.br/9pPwjxCBQi",
-        image: "https://img.terabyteshop.com.br/produto/m/fone-de-ouvido-sem-fio-qcy-t13-tws-bluetooth-5-1-branco_170629.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_634592-MLA95703465240_102025-O.webp",
       },
       {
         type: "heading",
@@ -671,7 +671,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta",
         store: "mercadolivre",
         link: "https://www.amazon.com.br/Cancelamento-W820NB-Bluetooth-OVER-EAR-EDIFIER/dp/B09MDC77QX?tag=tecnocheap05-20&linkCode=ll2",
-        image: "https://images.kabum.com.br/produtos/fotos/510655/headphone-bluetooth-edifier-w820nb-plus-cancelamento-de-ruido-ativo-bluetooth-5-2-preto-w820nb-plus-bk_1705693994_m.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_969012-MLA99938157613_112025-O.webp",
       },
       {
         type: "heading",
@@ -706,7 +706,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver fones Bluetooth",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3766799?view=storefront",
-        image: "https://img.terabyteshop.com.br/produto/m/fone-de-ouvido-sem-fio-edifier-w820nb-plus-cancelamento-de-ruido-ativo-branco_193980.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_608549-MLB10065424959_092025-O.webp",
       },
       {
         type: "paragraph",
@@ -757,7 +757,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver power banks",
         store: "mercadolivre",
         link: "https://meli.la/1DRaGZv",
-        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/565089/medium/Carregador-Port-til-Power-Bank-Baseus-Bipow-10000mAh-20W-Digital-Display-com-Cabo-Type-C-Preto_1729521613.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_645297-MLA99992011927_112025-O.webp",
       },
       {
         type: "heading",
@@ -885,7 +885,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver carregadores",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3760315?view=storefront",
-        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/759742/medium/Carregador-Baseus-GaN-5-Pro-65W-2-USB-C-Preto-PD-3-0-QC-4-0-PPS-A-para-Notebook-Smartphone-e-Tablet_1713540478.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_645297-MLA99992011927_112025-O.webp",
       },
       {
         type: "heading",

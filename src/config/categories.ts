@@ -208,6 +208,10 @@ export const categorySchema = z.object({
   order: z.number().int().min(1).max(999),
   featured: z.boolean().optional(),
   showInHighlights: z.boolean().optional(),
+  /** URL da imagem representativa do produto (opcional) */
+  image: z.string().url().optional(),
+  /** Badge extra: "popular", "limited", "bestseller" */
+  badge: z.enum(["popular", "limited", "bestseller"]).optional(),
 });
 
 export type Category = z.infer<typeof categorySchema>;
@@ -234,12 +238,14 @@ export const CATEGORIES: Category[] = [
   {
     id: "videos",
     name: "Produtos dos vídeos",
-    description: "Veja os produtos que apareceram nos vídeos recentes do TikTok.",
+    description: "Os itens que bombaram nos vídeos do TikTok esta semana.",
     cta: "Ver produtos dos vídeos",
     link: "https://collshp.com/technocheap/category/3861778?view=storefront",
     icon: "Sparkles",
     order: 1,
     featured: true,
+    badge: "popular",
+    image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/734571/medium/Smartphone-Samsung-Galaxy-A56-128GB-Preto-5g-C-mera-Tripla-50mp-Ram-8GB-Tela-6-7-_1777055936.jpg",
   },
   {
     id: "projetores",
@@ -250,6 +256,8 @@ export const CATEGORIES: Category[] = [
     icon: "Projector",
     order: 2,
     showInHighlights: true,
+    badge: "bestseller",
+    image: "https://http2.mlstatic.com/D_NQ_NP_969012-MLA99938157613_112025-O.webp",
   },
   {
     id: "fones",
@@ -260,6 +268,8 @@ export const CATEGORIES: Category[] = [
     icon: "Headphones",
     order: 3,
     showInHighlights: true,
+    badge: "bestseller",
+    image: "https://http2.mlstatic.com/D_NQ_NP_683636-MLA108647338144_032026-O.webp",
   },
   {
     id: "tablets",
@@ -269,6 +279,7 @@ export const CATEGORIES: Category[] = [
     link: "https://collshp.com/technocheap/category/3841978?view=storefront",
     icon: "Tablet",
     order: 4,
+    image: "https://http2.mlstatic.com/D_NQ_NP_845949-MLA100075580727_122025-O.webp",
   },
   {
     id: "celulares",
@@ -278,6 +289,8 @@ export const CATEGORIES: Category[] = [
     link: "https://collshp.com/technocheap/category/3760315?view=storefront",
     icon: "Smartphone",
     order: 5,
+    badge: "popular",
+    image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/716544/medium/Smartphone-Xiaomi-Poco-X7-Pro-256gb-12gb-Ram-5g-Vers-o-Global-Nfc_1765458539.jpg",
   },
   {
     id: "smart-tvs",
@@ -287,6 +300,7 @@ export const CATEGORIES: Category[] = [
     link: "https://collshp.com/technocheap/category/3760320?view=storefront",
     icon: "Tv",
     order: 6,
+    image: "https://images.kabum.com.br/produtos/fotos/614879/monitor-gamer-lg-ultragear-24-full-hd-ips-180hz-1ms-displayport-e-hdmi-nvidia-g-sync-amd-freesync-hdr10-srgb-99-24gs60f-b_1722881105_m.jpg",
   },
   {
     id: "casa",
@@ -296,6 +310,7 @@ export const CATEGORIES: Category[] = [
     link: "https://collshp.com/technocheap/category/3766803?view=storefront",
     icon: "Home",
     order: 7,
+    image: "https://http2.mlstatic.com/D_NQ_NP_990761-MLA99963806517_112025-O.webp",
   },
   {
     id: "eletros",
@@ -305,6 +320,7 @@ export const CATEGORIES: Category[] = [
     link: "https://collshp.com/technocheap/category/3760316?view=storefront",
     icon: "Microwave",
     order: 8,
+    image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/924194/medium/Smartphone-Samsung-Galaxy-A17-5g-Com-Ia-256GB-8GB-RAM-C-m-De-50mp-Tela-De-6-7-NFC-Ip54-Preto_1770927225.jpg",
   },
 ];
 

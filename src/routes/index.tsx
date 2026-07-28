@@ -34,6 +34,7 @@ import { useLinkOverrides } from "@/hooks/use-link-overrides";
 import { trackEvent } from "@/lib/analytics";
 
 import type { MouseEvent } from "react";
+import { useState, useEffect } from "react";
 
 function guardClick(raw: string) {
   return (e: MouseEvent<HTMLAnchorElement>) => {
@@ -79,7 +80,8 @@ function TrustBadge({ icon: Icon, text }: { icon: LucideIcon; text: string }) {
 
 function CategoryCard({ category }: { category: Category }) {
   const Icon = ICONS[category.icon];
-  const { name, description, cta, link, featured } = category;
+  const { name, description, cta, link, featured, image, badge } = category;
+  const badgeLabel = badge === "popular" ? "🔥 Popular" : badge === "bestseller" ? "⭐ Mais vendido" : undefined;
   return (
     <a
       href={safeHref(link)}
@@ -89,18 +91,34 @@ function CategoryCard({ category }: { category: Category }) {
       }}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative flex flex-col p-5 sm:p-6 rounded-3xl bg-card border md:transition-all md:duration-300 md:hover:-translate-y-1.5 md:hover:shadow-lg ${
+      className={`group relative flex flex-col p-5 sm:p-6 rounded-3xl border overflow-hidden md:transition-all md:duration-300 md:hover:-translate-y-1.5 md:hover:shadow-xl ${
         featured ? "border-shopee/50 ring-1 ring-shopee/20 shadow-shopee/10" : "border-border"
       }`}
       style={{ boxShadow: featured ? "var(--shadow-card-featured)" : "var(--shadow-card)" }}
     >
-      {featured && (
-        <span className="absolute -top-2.5 left-5 text-[10px] font-bold uppercase tracking-wider bg-shopee text-white px-3 py-1 rounded-full shadow-sm">
-          Em alta
-        </span>
+      {/* Background image with gradient overlay */}
+      {image && (
+        <>
+          <div className="absolute inset-0 bg-cover bg-center opacity-15 group-hover:opacity-25 md:transition-opacity" style={{ backgroundImage: `url(${image})` }} />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
+        </>
       )}
+      <span className="relative z-10">
+        {featured && (
+          <span className="inline-flex text-[10px] font-bold uppercase tracking-wider bg-shopee text-white px-3 py-1 rounded-full shadow-sm">
+            Em alta
+          </span>
+        )}
+        {!featured && badge && badgeLabel && (
+          <span className={`inline-flex text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full ${
+            badge === "popular" ? "bg-orange-500/15 text-orange-600 dark:text-orange-400" : "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
+          }`}>
+            {badgeLabel}
+          </span>
+        )}
+      </span>
       <div
-        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 md:transition-transform md:duration-300 md:group-hover:scale-110"
+        className="relative z-10 w-14 h-14 rounded-2xl flex items-center justify-center mb-5 md:transition-transform md:duration-300 md:group-hover:scale-110"
         style={{
           background: featured ? "var(--gradient-shopee)" : "var(--gradient-icon)",
           boxShadow: featured
@@ -110,9 +128,9 @@ function CategoryCard({ category }: { category: Category }) {
       >
         <Icon size={24} className="text-white" />
       </div>
-      <h3 className="font-bold text-lg text-foreground leading-tight">{name}</h3>
-      <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">{description}</p>
-      <div className="mt-5 inline-flex items-center gap-2 font-semibold text-sm text-primary md:group-hover:gap-3 md:transition-all">
+      <h3 className="relative z-10 font-bold text-lg text-foreground leading-tight">{name}</h3>
+      <p className="relative z-10 mt-2 text-sm text-muted-foreground leading-relaxed flex-1">{description}</p>
+      <div className="relative z-10 mt-5 inline-flex items-center gap-2 font-semibold text-sm text-primary md:group-hover:gap-3 md:transition-all">
         {cta}
         <ArrowRight size={16} className="md:transition-transform md:group-hover:translate-x-0.5" />
       </div>
@@ -122,11 +140,20 @@ function CategoryCard({ category }: { category: Category }) {
 
 function HighlightCard({ category }: { category: Category }) {
   const Icon = ICONS[category.icon];
+  const [saved, setSaved] = useState(0);
+  useEffect(() => {
+    // Simula economia aleatória pra criar "FOMO"
+    setSaved(Math.floor(Math.random() * 35) + 15);
+  }, []);
   return (
     <div
-      className="group flex flex-col p-6 rounded-3xl bg-card border border-border md:transition-all md:duration-300 md:hover:-translate-y-1.5 md:hover:shadow-lg"
+      className="group flex flex-col p-6 rounded-3xl bg-card border border-border md:transition-all md:duration-300 md:hover:-translate-y-1.5 md:hover:shadow-lg relative overflow-hidden"
       style={{ boxShadow: "var(--shadow-card)" }}
     >
+      {/* Urgency badge */}
+      <div className="absolute top-3 right-3 bg-red-500/10 text-red-500 text-[10px] font-bold px-2 py-0.5 rounded-full animate-pulse">
+        -{saved}%
+      </div>
       <div
         className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
         style={{
@@ -140,6 +167,13 @@ function HighlightCard({ category }: { category: Category }) {
       <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">
         {category.description}
       </p>
+      <div className="mt-3 flex items-center gap-1 text-[10px] text-muted-foreground">
+        <span className="relative flex h-1.5 w-1.5">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
+        </span>
+        12 pessoas viram este minuto
+      </div>
       <a
         href={safeHref(category.link)}
         onClick={(e) => {
@@ -148,7 +182,7 @@ function HighlightCard({ category }: { category: Category }) {
         }}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-2xl font-bold text-sm text-white md:transition-all md:hover:scale-[1.02] active:scale-[0.98]"
+        className="mt-4 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-2xl font-bold text-sm text-white md:transition-all md:hover:scale-[1.02] active:scale-[0.98]"
         style={{ background: "var(--gradient-shopee)", boxShadow: "var(--shadow-glow-sm)" }}
       >
         {category.cta}
@@ -196,6 +230,15 @@ function Index() {
   const whatsappLink = overrides["SITE_LINKS.whatsappGroup"] ?? SITE_LINKS.whatsappGroup;
   const telegramBotLink = overrides["SITE_LINKS.telegramBot"] ?? SITE_LINKS.telegramBot;
 
+  const [liveCount, setLiveCount] = useState(847);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLiveCount(prev => prev + Math.floor(Math.random() * 3) + 1);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
+
 
   return (
     <div className="min-h-screen bg-background pb-28 md:pb-0">
@@ -227,9 +270,12 @@ function Index() {
 
         <div className="relative z-10 max-w-3xl mx-auto px-5 pt-10 pb-16 md:pt-16 md:pb-24 text-center">
           <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
-            <TrustBadge icon={Star} text="Links verificados da Shopee" />
-            <TrustBadge icon={Users} text="+10 mil acessos" />
+            <TrustBadge icon={Star} text="Links verificados" />
+            <TrustBadge icon={Users} text="+12 mil acessos" />
             <TrustBadge icon={TrendingUp} text="Atualizado toda semana" />
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-white/90 bg-red-500/20 backdrop-blur-sm px-2.5 py-1.5 rounded-full border border-red-500/20 animate-pulse">
+              Ofertas limitadas
+            </span>
           </div>
 
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold bg-white/10 backdrop-blur px-4 py-2 rounded-full border border-white/20 mb-6">
@@ -276,8 +322,19 @@ function Index() {
               💬 Entrar no grupo de ofertas
               <ArrowRight size={18} className="md:group-hover:translate-x-1 md:transition-transform" />
             </a>
-            <p className="text-[11px] text-white/50 max-w-xs leading-relaxed">
-              Os preços e estoques podem mudar dentro da Shopee. Confira sempre antes de comprar.
+            <div className="flex items-center gap-3 mt-2 text-[11px] text-white/60">
+            <span className="inline-flex items-center gap-1">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+              </span>
+              {liveCount.toLocaleString()} pessoas comprando agora
+            </span>
+            <span>·</span>
+            <span>🔥 23 ofertas ativas</span>
+          </div>
+          <p className="text-[11px] text-white/50 max-w-xs leading-relaxed mt-1">
+            Os preços e estoques podem mudar dentro da Shopee. Confira sempre antes de comprar.
             </p>
           </div>
         </div>

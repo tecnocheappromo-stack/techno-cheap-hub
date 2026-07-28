@@ -511,7 +511,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver power banks",
         store: "mercadolivre",
         link: "https://meli.la/1DRaGZv",
-        image: "https://http2.mlstatic.com/D_NQ_NP_645297-MLA99992011927_112025-O.webp",
+        image: "",
       },
       {
         type: "heading",
@@ -670,7 +670,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta",
         store: "amazon",
         link: "https://www.amazon.com.br/Cancelamento-W820NB-Bluetooth-OVER-EAR-EDIFIER/dp/B09MDC77QX?tag=tecnocheap05-20&linkCode=ll2",
-        image: "https://http2.mlstatic.com/D_NQ_NP_645297-MLA99992011927_112025-O.webp",
+        image: "",
       },
       {
         type: "heading",
@@ -756,7 +756,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver power banks",
         store: "mercadolivre",
         link: "https://meli.la/1DRaGZv",
-        image: "https://http2.mlstatic.com/D_NQ_NP_645297-MLA99992011927_112025-O.webp",
+        image: "",
       },
       {
         type: "heading",
@@ -884,7 +884,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver carregadores",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3760315?view=storefront",
-        image: "https://http2.mlstatic.com/D_NQ_NP_645297-MLA99992011927_112025-O.webp",
+        image: "",
       },
       {
         type: "heading",

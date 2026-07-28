@@ -29,14 +29,13 @@ import {
   type Category,
 } from "@/config/categories";
 import { getArticles, ARTICLE_CATEGORIES } from "@/config/articles";
+import { getActiveCoupons } from "@/config/coupons";
 import { AdminPanel } from "@/components/AdminPanel";
 import { useLinkOverrides } from "@/hooks/use-link-overrides";
 import { trackEvent } from "@/lib/analytics";
 
 import type { MouseEvent } from "react";
-import { useState, useEffect } from "react";
-
-function guardClick(raw: string) {
+import { useState, useEffect, useCallback } from "react";
   return (e: MouseEvent<HTMLAnchorElement>) => {
     if (validateLink(raw).status !== "valid") {
       e.preventDefault();
@@ -192,6 +191,77 @@ function HighlightCard({ category }: { category: Category }) {
   );
 }
 
+function CouponBar() {
+  const coupons = getActiveCoupons();
+  const [idx, setIdx] = useState(0);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (coupons.length < 2) return;
+    const t = setInterval(() => setIdx((p) => (p + 1) % coupons.length), 5000);
+    return () => clearInterval(t);
+  }, [coupons.length]);
+
+  const copyCode = useCallback((code: string) => {
+    navigator.clipboard.writeText(code).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }, []);
+
+  if (coupons.length === 0) return null;
+
+  const c = coupons[idx];
+
+  return (
+    <div className="relative z-50 bg-gradient-to-r from-shopee/90 to-brand-blue/90 text-white">
+      <div className="max-w-6xl mx-auto px-4 py-2.5 flex items-center justify-between gap-3 text-sm">
+        <div className="flex items-center gap-2 min-w-0 flex-1">
+          <span className="shrink-0 text-[10px] font-bold uppercase tracking-wider bg-white/20 px-2 py-0.5 rounded">
+            {STORES[c.store as keyof typeof STORES]?.label ?? c.store}
+          </span>
+          <span className="font-mono font-bold text-base tracking-wide">
+            {c.code}
+          </span>
+          <span className="text-white/80 truncate hidden sm:inline">
+            {c.description}
+          </span>
+        </div>
+        <div className="flex items-center gap-2 shrink-0">
+          <button
+            onClick={() => copyCode(c.code)}
+            className="text-[11px] font-semibold bg-white/20 hover:bg-white/30 px-3 py-1 rounded-full transition-colors"
+          >
+            {copied ? "Copiado!" : "Copiar"}
+          </button>
+          <a
+            href={c.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[11px] font-bold bg-white text-foreground px-3 py-1 rounded-full hover:scale-105 transition-transform"
+          >
+            Usar
+          </a>
+        </div>
+      </div>
+      {/* dots */}
+      {coupons.length > 1 && (
+        <div className="flex justify-center gap-1 pb-1">
+          {coupons.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIdx(i)}
+              className={`w-1.5 h-1.5 rounded-full transition-all ${
+                i === idx ? "bg-white w-3" : "bg-white/40"
+              }`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function StepCard({
   icon: Icon,
   title,
@@ -242,6 +312,7 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background pb-28 md:pb-0">
+      <CouponBar />
       {/* HERO */}
       <header
         className="relative overflow-hidden text-white"

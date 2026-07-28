@@ -577,7 +577,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver tablets",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3841978?view=storefront",
-        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/871509/medium/Tablet-Samsung-Galaxy-Tab-A9-64gb-Wi-fi-4gb-Ram-Tela-8-7-Androidd-13-Prata_1718735313.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_845949-MLA100075580727_122025-O.webp",
       },
       {
         type: "heading",
@@ -602,7 +602,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver itens para casa",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3766803?view=storefront",
-        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/776337/medium/C-mera-Wi-fi-Intelbras-IMP-360-180-Resolu-o-2MP-Full-HD-360-ngulo-de-Vis-o-C-pula-Vis-o-Noturna-Gravacao-Em-Nuvem-Branca_1722539343.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_990761-MLA99963806517_112025-O.webp",
       },
       {
         type: "heading",
@@ -1159,7 +1159,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta no Mercado Livre",
         store: "mercadolivre",
         link: "https://meli.la/25efFkB",
-        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/871509/medium/Tablet-Samsung-Galaxy-Tab-A9-64gb-Wi-fi-4gb-Ram-Tela-8-7-Androidd-13-Prata_1718735313.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_845949-MLA100075580727_122025-O.webp",
       },
       {
         type: "heading",
@@ -1190,7 +1190,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta no Mercado Livre",
         store: "mercadolivre",
         link: "https://meli.la/2pCehzk",
-        image: "https://img.terabyteshop.com.br/produto/m/tablet-xiaomi-redmi-pad-se-8-7-wi-fi-128gb-4gb-ram-azul_195874.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_683636-MLA108647338144_032026-O.webp",
       },
       {
         type: "heading",
@@ -1221,7 +1221,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta no Mercado Livre",
         store: "mercadolivre",
         link: "https://meli.la/29DaHvo",
-        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/572522/medium/Tablet-Amazon-Fire-HD-10-2023-32-GB-Wi-Fi-Tela-de-10-1-Androidd-Preto_1709226278.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_864092-CBT113267571978_072026-O.webp",
       },
       {
         type: "heading",
@@ -1293,7 +1293,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta na Amazon",
         store: "amazon",
         link: "https://www.amazon.com.br/Notebook-Samsung-Windows-Snapdragon%C2%AE-integrado/dp/B0FCMXNR2K?&linkCode=ll2&tag=tecnocheap05-20&linkId=e5e1867e2c6c653ea3e32ae82d70edb8&ref_=as_li_ss_tl",
-        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/493097/medium/Notebook-Samsung-Galaxy-Book-Go-14-Snapdragon-7c-Gen-2-8GB-RAM-128GB-SSD-Windows-11-Home-Prata_1717166762.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_951167-MLA100891973563_112025-O.webp",
       },
       {
         type: "heading",
@@ -1325,7 +1325,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta no Mercado Livre",
         store: "mercadolivre",
         link: "https://meli.la/2oTuEp4",
-        image: "https://images.kabum.com.br/produtos/fotos/461968/notebook-vaio-fe15-intel-core-i5-1135g7-8gb-ram-256gb-ssd-tela-15-6-windows-11-home-prata_1696968544_m.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_804819-MLU74054865698_012024-O.webp",
       },
       {
         type: "heading",
@@ -1357,7 +1357,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta no Mercado Livre",
         store: "mercadolivre",
         link: "https://meli.la/1sEvL3d",
-        image: "https://images.kabum.com.br/produtos/fotos/509680/notebook-lenovo-ideapad-1i-intel-celeron-n4020-4gb-ram-128gb-ssd-tela-15-6-windows-11-home-cinza_1703267694_m.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_740987-MLA99423562544_112025-O.webp",
       },
       {
         type: "heading",
@@ -1427,7 +1427,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta no Mercado Livre",
         store: "mercadolivre",
         link: "https://meli.la/19RpcXs",
-        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/776337/medium/C-mera-Wi-fi-Intelbras-IMP-360-180-Resolu-o-2MP-Full-HD-360-ngulo-de-Vis-o-C-pula-Vis-o-Noturna-Gravacao-Em-Nuvem-Branca_1722539343.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_990761-MLA99963806517_112025-O.webp",
       },
       {
         type: "heading",
@@ -1458,7 +1458,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta na Amazon",
         store: "amazon",
         link: "https://www.amazon.com.br/L%C3%A2mpada-Positivo-Casa-Inteligente-Compat%C3%ADvel/dp/B082FTRR76?th=1&linkCode=ll2&tag=tecnocheap05-20&linkId=4333064ec35a8cbb408c8a39bf5b8176&ref_=as_li_ss_tl",
-        image: "https://images.kabum.com.br/produtos/fotos/392827/lampada-smart-positivo-wi-fi-branco-e-colorida-rgb-9w-bivolt-alexa-google-preto_1663786550_m.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_755547-MLB78768137583_092024-O.webp",
       },
       {
         type: "heading",
@@ -1489,7 +1489,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta na Amazon",
         store: "amazon",
         link: "https://www.amazon.com.br/Tomada-Inteligente-Wi-FI-Intelbras-Preto/dp/B0GPXB3MQM?source=ps-sl-shoppingads-lpcontext&psc=1&smid=A1ZZFT5FULY4LN&linkCode=ll2&tag=tecnocheap05-20&linkId=5fddad4b515fa3979bede2ed7c035ed9&ref_=as_li_ss_tl",
-        image: "https://images.kabum.com.br/produtos/fotos/360075/tomada-inteligente-intelbras-iht-2100-wi-fi-2-entradas-usb-alexa-google-assistente-branca_1651841934_m.jpg",
+        image: "https://http2.mlstatic.com/D_NQ_NP_790127-MLB78938972692_092024-O.webp",
       },
       {
         type: "heading",

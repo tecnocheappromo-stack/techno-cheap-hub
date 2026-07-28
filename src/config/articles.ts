@@ -1110,6 +1110,410 @@ export const ARTICLES: Article[] = [
       },
     ],
   },
+
+  /* ============================================================
+   *  ARTIGO 10 — Tablet custo-benefício: qual comprar em 2026
+   * ============================================================ */
+  {
+    slug: "tablet-custo-beneficio-2026",
+    title: "Tablet custo-benefício: qual comprar em 2026",
+    description:
+      "Samsung Galaxy Tab A9, Xiaomi Redmi Pad SE ou Amazon Fire HD 10: três tablets populares, cada um com um propósito diferente. Veja qual faz sentido pra você.",
+    category: "comparativo",
+    coverIcon: "Smartphone",
+    publishedAt: "2026-07-28",
+    tags: ["tablet", "custo-benefício", "comparativo", "estudo"],
+    readTimeMinutes: 8,
+    relatedCategoryIds: [],
+    content: [
+      {
+        type: "paragraph",
+        text: "Tablet é um daqueles itens que todo mundo quer ter, mas pouca gente sabe exatamente qual comprar. A boa notícia é que em 2026 o mercado brasileiro tem três opções muito claras na faixa de R$ 600 a R$ 1.300 — cada uma acertando em um perfil de uso diferente. A má notícia: escolher errado significa pagar por recurso que você não vai usar, ou pior, comprar um tablet que trava nas tarefas que você realmente precisa.",
+      },
+      {
+        type: "heading",
+        text: "Samsung Galaxy Tab A9 — o mais equilibrado",
+      },
+      {
+        type: "paragraph",
+        text: "O Galaxy Tab A9 é o tablet que a Samsung acertou no ponto certo de custo-benefício. Tela de 8.7 polegadas com resolução boa pra ler, assistir vídeos e usar apps do dia a dia, processador que não engasga nas tarefas comuns e 4GB de RAM que dão conta de multitarefa leve — e o melhor: bateria que dura o dia inteiro mesmo com uso contínuo.",
+      },
+      {
+        type: "list",
+        items: [
+          "Tela de 8.7 polegadas — tamanho que ainda cabe na mochila e dá pra segurar com uma mão deitado no sofá",
+          "4GB de RAM + 64GB de armazenamento (expansível via microSD até 1TB)",
+          "Bateria de 5.100mAh que aguenta até 14h de reprodução de vídeo",
+          "Construção em metal, mais premium que a concorrência direta",
+          "Android 14 com garantia de atualizações da Samsung",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Pra quem quer um tablet pra consumo de conteúdo (YouTube, Netflix, redes sociais), estudos com PDF e anotações leves, e jogos casuais, o Tab A9 é a escolha mais segura da lista. O ponto fraco é que o carregador vem separado — algo que virou padrão infelizmente.",
+      },
+      {
+        type: "cta",
+        title: "Galaxy Tab A9 — o mais vendido da categoria",
+        text: "Promoção relâmpago por tempo limitado. Preço pode ser alterado a qualquer momento.",
+        buttonLabel: "Ver oferta no Mercado Livre",
+        store: "mercadolivre",
+        link: "https://meli.la/25efFkB",
+        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/871509/medium/Tablet-Samsung-Galaxy-Tab-A9-64gb-Wi-fi-4gb-Ram-Tela-8-7-Androidd-13-Prata_1718735313.jpg",
+      },
+      {
+        type: "heading",
+        text: "Xiaomi Redmi Pad SE — o melhor custo-benefício absoluto",
+      },
+      {
+        type: "paragraph",
+        text: "A Xiaomi chegou com tudo no mercado de tablets, e o Redmi Pad SE é a prova mais clara disso. Pelo preço, entrega tela de 90Hz (sim, taxa de atualização alta que você normalmente só vê em tablets mais caros), 4GB de RAM, 128GB de armazenamento e som estéreo com quatro alto-falantes — coisa raríssima nessa faixa de preço.",
+      },
+      {
+        type: "list",
+        items: [
+          "Tela de 8.7 polegadas com taxa de atualização de 90Hz — navegação mais fluida que a concorrência",
+          "4GB de RAM + 128GB de armazenamento (o dobro do concorrente direto pelo mesmo preço)",
+          "4 alto-falantes com Dolby Atmos — sem comparação pra quem assiste série sem fone",
+          "Bateria de 6.650mAh — a maior da categoria, aguenta dias de uso moderado",
+          "Carregador de 22.5W incluso na caixa (sim, vem na caixa)",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "O Redmi Pad SE é a escolha certa se a prioridade é assistir conteúdo, ouvir música e jogar sem gastar muito. Os quatro alto-falantes fazem uma diferença enorme no dia a dia — você simplesmente não volta a usar tablet com som mono depois de experimentar. O ponto de atenção é que a MIUI (interface da Xiaomi) tem anúncios na versão global, mas dá pra desabilitar nas configurações.",
+      },
+      {
+        type: "cta",
+        title: "Redmi Pad SE — 128GB com 4 alto-falantes",
+        text: "Oferta por tempo limitado. Estoque pode acabar. Valor promocional abaixo do preço sugerido.",
+        buttonLabel: "Ver oferta no Mercado Livre",
+        store: "mercadolivre",
+        link: "https://meli.la/2pCehzk",
+        image: "https://img.terabyteshop.com.br/produto/m/tablet-xiaomi-redmi-pad-se-8-7-wi-fi-128gb-4gb-ram-azul_195874.jpg",
+      },
+      {
+        type: "heading",
+        text: "Amazon Fire HD 10 — o mais barato, com ressalvas",
+      },
+      {
+        type: "paragraph",
+        text: "O Fire HD 10 é o tablet mais vendido do Brasil não por acaso: o preço é agressivo e a tela de 10.1 polegadas é a maior entre os três. Mas existe um porém grande: ele roda Fire OS (o sistema adaptado da Amazon), não Android puro. Isso significa que você não tem acesso à Play Store — tem que baixar tudo pela Amazon Appstore, que tem menos apps e versões desatualizadas de muitos aplicativos populares.",
+      },
+      {
+        type: "list",
+        items: [
+          "Tela de 10.1 polegadas Full HD — a maior tela da comparação",
+          "3GB de RAM + 32GB ou 64GB de armazenamento (expansível via microSD até 1TB)",
+          "Bateria de 12h de duração em vídeo — ótima pra maratona de séries",
+          "Preço muito baixo — entra em qualquer orçamento",
+          "Não tem Play Store nativamente — precisa instalar por fora (tem tutorial, mas trava de vez em quando)",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "O Fire HD 10 vale a pena em dois cenários muito específicos: se o uso principal for assistir Amazon Prime Video, Netflix e YouTube, ou se o orçamento for tão apertado que não dá pra esticar pros modelos acima. Fora isso, os R$ 100-200 a mais do Galaxy Tab A9 ou Redmi Pad SE entregam uma experiência muito mais completa e sem dor de cabeça com apps.",
+      },
+      {
+        type: "cta",
+        title: "Fire HD 10 — o mais barato da lista",
+        text: "Preço arrasador por tempo limitado. Estoque girando rápido. Pode ser alterado sem aviso.",
+        buttonLabel: "Ver oferta no Mercado Livre",
+        store: "mercadolivre",
+        link: "https://meli.la/29DaHvo",
+        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/572522/medium/Tablet-Amazon-Fire-HD-10-2023-32-GB-Wi-Fi-Tela-de-10-1-Androidd-Preto_1709226278.jpg",
+      },
+      {
+        type: "heading",
+        text: "Qual comprar?",
+      },
+      {
+        type: "list",
+        items: [
+          "Consumo de conteúdo multimídia (série, filme, música): Xiaomi Redmi Pad SE — os 4 alto-falantes e tela 90Hz ganham",
+          "Estudo, PDF, anotações, uso geral Android: Galaxy Tab A9 — a Play Store completa e o ecossistema Samsung pesam",
+          "Orçamento muito apertado, só pra ver vídeo: Amazon Fire HD 10 — desde que você aceite as limitações de sistema",
+          "Crianças: Fire HD 10 tem o melhor controle parental (Amazon Kids) — esse é o único cenário que ele ganha disparado",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "No fim, o melhor tablet custo-benefício de 2026 depende do seu bolso e do que você vai fazer com ele. Acertou o perfil de uso, acertou a compra. Quem compra o tablet mais barato achando que vai servir pra tudo geralmente se arrepende em 3 meses.",
+      },
+    ],
+  },
+
+  /* ============================================================
+   *  ARTIGO 11 — Notebook bom e barato pra trabalho e estudo
+   * ============================================================ */
+  {
+    slug: "notebook-barato-trabalho-estudo-2026",
+    title: "Notebook bom e barato pra trabalho e estudo em 2026",
+    description:
+      "Samsung Galaxy Book Go, Vaio FE15 e Lenovo Ideapad 1i: três notebooks de até R$ 2.500 comparados em desempenho, bateria e portabilidade pra você não errar a compra.",
+    category: "comparativo",
+    coverIcon: "Flame",
+    publishedAt: "2026-07-28",
+    tags: ["notebook", "trabalho", "estudo", "custo-benefício"],
+    readTimeMinutes: 9,
+    relatedCategoryIds: [],
+    content: [
+      {
+        type: "paragraph",
+        text: "Comprar notebook barato no Brasil em 2026 exige mais cuidado do que nunca. A faixa de R$ 1.500 a R$ 2.500 é a mais disputada dos marketplaces, mas também a que tem mais armadilhas: processadores fracos que travam em 3 abas do Chrome, SSD de capacidade diferente dependendo da loja e bateria que dura menos que uma reunião longa. A gente separou os três notebooks mais vendidos dessa faixa e destrinchou cada um pra você saber o que está levando.",
+      },
+      {
+        type: "heading",
+        text: "Samsung Galaxy Book Go — portátil e conectado o tempo todo",
+      },
+      {
+        type: "paragraph",
+        text: "O Galaxy Book Go é o notebook mais fino e leve dessa lista, e isso já diz muito sobre ele. Processador Qualcomm Snapdragon 7c Gen 2 (sim, é o mesmo chip de celular) com 8GB de RAM e 128GB SSD — configuração que surpreende pelo preço. O maior trunfo é o modem 4G embutido: ele não precisa de Wi-Fi pra navegar, usa chip de operadora e fica online em qualquer lugar.",
+      },
+      {
+        type: "list",
+        items: [
+          "Processador Snapdragon 7c Gen 2 — eficiente, bom pra navegação e pacote Office, não espere rodar jogos pesados",
+          "8GB de RAM + 128GB SSD — configuração honesta pra faixa de preço",
+          "14 polegadas Full HD — tela boa pro tamanho",
+          "Bateria de até 18h — um dia inteiro de trabalho sem tomada por perto",
+          "Modem 4G embutido — usa chip de operadora, fica online em qualquer lugar",
+          "Pesa apenas 1.38kg — leva na mochila e nem sente",
+          "Windows 11 Home — já vem pronto pra uso (edição ARM, confira compatibilidade dos seus apps)",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "O Galaxy Book Go é a melhor opção pra quem trabalha fora de casa, usa o notebook principalmente para navegação, documentos, planilhas e apresentações, e precisa estar conectado onde não tem Wi-Fi. O ponto de atenção é a arquitetura ARM: a maioria dos apps funciona bem, mas alguns programas específicos (plugins de Excel pesados, softwares de engenharia, alguns jogos) podem ter compatibilidade reduzida.",
+      },
+      {
+        type: "cta",
+        title: "Galaxy Book Go — notebook com 4G embutido",
+        text: "Smart TV Samsung 43 polegadas + soundbar + brindes — clique e confira!",
+        buttonLabel: "Ver oferta na Amazon",
+        store: "amazon",
+        link: "https://www.amazon.com.br/Notebook-Samsung-Windows-Snapdragon%C2%AE-integrado/dp/B0FCMXNR2K?&linkCode=ll2&tag=tecnocheap05-20&linkId=e5e1867e2c6c653ea3e32ae82d70edb8&ref_=as_li_ss_tl",
+        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/493097/medium/Notebook-Samsung-Galaxy-Book-Go-14-Snapdragon-7c-Gen-2-8GB-RAM-128GB-SSD-Windows-11-Home-Prata_1717166762.jpg",
+      },
+      {
+        type: "heading",
+        text: "Vaio FE15 — o notebook raíz que ainda faz sentido",
+      },
+      {
+        type: "paragraph",
+        text: "A Vaio é uma marca que sobreviveu à extinção dos notebooks japoneses e hoje vive um segundo fôlego no Brasil com máquinas simples e honestas. O FE15 vem com Intel Core i5-1135G7 (um processador de 11ª geração que ainda entrega mais desempenho bruto que muito Celeron de notebook novo), 8GB de RAM e 256GB SSD — configuração que roda multitarefa pesada e até alguns programas de edição leve sem engasgar.",
+      },
+      {
+        type: "list",
+        items: [
+          "Intel Core i5-1135G7 — o processador mais forte da comparação, roda multitarefa real",
+          "8GB de RAM + 256GB SSD — SSD de 256GB é um diferencial contra concorrentes com 128GB",
+          "Tela de 15.6 polegadas — a maior tela da lista, boa pra planilha e estudo",
+          "Teclado numérico dedicado — indispensável pra quem trabalha com números",
+          "Bateria de 8h — suficiente pro dia de aula ou trabalho",
+          "Windows 11 Home + Office 2021 incluso de fábrica — já sai da caixa pronto",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "O FE15 é a escolha certa pra quem usa o notebook como ferramenta de trabalho principal: edita texto, mexe em planilha grande, participa de reunião com várias abas abertas, edita foto leve. O processador i5 de 11ª geração ainda surpreende quem acha que notebook barato é tudo fraco. Só não espere bateria de dia inteiro — as 8h são realistas só em uso leve.",
+      },
+      {
+        type: "cta",
+        title: "Vaio FE15 — i5, 256GB SSD, Office incluso",
+        text: "Preço especial por tempo limitado. Valor promocional pode ser alterado sem aviso prévio.",
+        buttonLabel: "Ver oferta no Mercado Livre",
+        store: "mercadolivre",
+        link: "https://meli.la/2oTuEp4",
+        image: "https://images.kabum.com.br/produtos/fotos/461968/notebook-vaio-fe15-intel-core-i5-1135g7-8gb-ram-256gb-ssd-tela-15-6-windows-11-home-prata_1696968544_m.jpg",
+      },
+      {
+        type: "heading",
+        text: "Lenovo Ideapad 1i — o que cabe no bolso quando o orçamento apertou",
+      },
+      {
+        type: "paragraph",
+        text: "O Ideapad 1i é o notebook de entrada da Lenovo e, pelo preço, entrega o mínimo que um computador precisa para funcionar em 2026: Intel Celeron N4020, 4GB de RAM e 128GB SSD. Não espere multitarefa — ele roda bem uma tarefa de cada vez — mas pra navegação, YouTube, editar texto e acessar a faculdade EAD, dá conta do recado.",
+      },
+      {
+        type: "list",
+        items: [
+          "Intel Celeron N4020 — processador de entrada, suficiente pra tarefas leves",
+          "4GB de RAM — o mínimo recomendável",
+          "128GB SSD — espaço pra sistema e arquivos básicos",
+          "Tela de 15.6 polegadas HD — resolução básica, mas tamanho generoso",
+          "Bateria de até 10h — surpreendentemente boa pra um notebook de entrada",
+          "Windows 11 Home — já vem com sistema instalado",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "O Ideapad 1i é honesto sobre o que é: o notebook mais barato possível que ainda roda Windows 11 sem sofrimento. Pra estudante que só precisa digitar trabalho e assistir aula online, ou adulto que quer um computador extra pra casa, ele cumpre o papel.",
+      },
+      {
+        type: "cta",
+        title: "Lenovo Ideapad 1i — o mais barato que ainda presta",
+        text: "Promoção relâmpago. Preço pode ser alterado a qualquer momento. Estoque limitado.",
+        buttonLabel: "Ver oferta no Mercado Livre",
+        store: "mercadolivre",
+        link: "https://meli.la/1sEvL3d",
+        image: "https://images.kabum.com.br/produtos/fotos/509680/notebook-lenovo-ideapad-1i-intel-celeron-n4020-4gb-ram-128gb-ssd-tela-15-6-windows-11-home-cinza_1703267694_m.jpg",
+      },
+      {
+        type: "heading",
+        text: "Qual notebook comprar?",
+      },
+      {
+        type: "list",
+        items: [
+          "Mobilidade total + internet em qualquer lugar: Galaxy Book Go — o 4G embutido e a bateria de 18h não têm concorrência",
+          "Máximo desempenho pelo preço + tela grande: Vaio FE15 — o i5 ainda é rei da faixa dos R$ 2.000",
+          "Orçamento no limite, uso básico: Lenovo Ideapad 1i — contanto que você não espere multitarefa",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Se puder esticar o orçamento até um i5 com SSD de 256GB, não pense duas vezes — o Vaio FE15 é o notebook que vai te atender por mais anos sem te fazer passar raiva. Se a prioridade é não pesar a mochila e nunca se preocupar com Wi-Fi, o Galaxy Book Go é uma escolha de nicho que faz sentido. E se a grana é curta e você precisa de um computador agora, o Ideapad 1i entrega o básico sem ser uma cilada.",
+      },
+    ],
+  },
+
+  /* ============================================================
+   *  ARTIGO 12 — Casa inteligente barata
+   * ============================================================ */
+  {
+    slug: "casa-inteligente-barata-2026",
+    title: "Casa inteligente barata: câmeras, lâmpadas e automação por menos de R$ 300",
+    description:
+      "Câmera Intelbras IMP 360, lâmpada Smart Positivo e tomada Intelbras IHT 2100 — três itens que transformam sua casa em smart por menos de R$ 300. Guia completo.",
+    category: "guia",
+    coverIcon: "Sparkles",
+    publishedAt: "2026-07-28",
+    tags: ["casa inteligente", "automação", "câmera", "lâmpada", "tomada"],
+    readTimeMinutes: 7,
+    relatedCategoryIds: [],
+    content: [
+      {
+        type: "paragraph",
+        text: "Casa inteligente deixou de ser coisa de milionário ou de entusiasta de tecnologia. Hoje, com menos de R$ 300, você monta um kit básico que muda a forma como interage com sua casa: câmera que você vê de qualquer lugar, lâmpada que acende sozinha no horário que você programar e tomada que desliga o ventilador quando a temperatura cai. Aqui vai o guia dos três itens que a gente recomenda como ponto de partida, tudo compatível com Alexa e Google Assistente.",
+      },
+      {
+        type: "heading",
+        text: "Câmera Intelbras IMP 360 — segurança que cabe no bolso",
+      },
+      {
+        type: "paragraph",
+        text: "A Intelbras é a marca brasileira de segurança mais conhecida do país, e a IMP 360 é o modelo de entrada que virou o mais vendido. São 2MP de resolução Full HD com visão noturna, 360 graus de movimentação motorizada, áudio bidirecional e gravação em nuvem gratuita por 7 dias ou em cartão microSD de até 128GB.",
+      },
+      {
+        type: "list",
+        items: [
+          "Resolução Full HD 2MP com visão noturna — imagem nítida mesmo no escuro",
+          "Movimentação motorizada horizontal e vertical (360°), controlada pelo app",
+          "Áudio bidirecional — ouve e fala pela câmera",
+          "Gravação em nuvem grátis por 7 dias ou em cartão microSD",
+          "Compatível com Alexa e Google Assistente",
+          "Instalação simples: só energia + Wi-Fi",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "A IMP 360 é a câmera que você compra sem medo de errar. O app Intelbras Monitor é simples de configurar, a qualidade de imagem é boa pro preço.",
+      },
+      {
+        type: "cta",
+        title: "Intelbras IMP 360 — a câmera mais vendida do Brasil",
+        text: "Promoção especial — preço mais baixo que em loja física. Estoque limitado.",
+        buttonLabel: "Ver oferta no Mercado Livre",
+        store: "mercadolivre",
+        link: "https://meli.la/19RpcXs",
+        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/776337/medium/C-mera-Wi-fi-Intelbras-IMP-360-180-Resolu-o-2MP-Full-HD-360-ngulo-de-Vis-o-C-pula-Vis-o-Noturna-Gravacao-Em-Nuvem-Branca_1722539343.jpg",
+      },
+      {
+        type: "heading",
+        text: "Lâmpada Smart Positivo — R$ 30 e você já tem casa inteligente",
+      },
+      {
+        type: "paragraph",
+        text: "A lâmpada smart da Positivo é o item mais barato pra entrar no mundo da automação. 9W com RGB, temperatura ajustável e compatibilidade com Alexa e Google.",
+      },
+      {
+        type: "list",
+        items: [
+          "9W com brilho de 806 lúmens — substitui lâmpada comum",
+          "RGB + temperatura ajustável",
+          "Compatível com Alexa e Google Assistente",
+          "Cronograma e temporizador no app",
+          "Preço mais baixo de entrada em casa inteligente",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Se você quer testar casa inteligente sem compromisso, essa lâmpada é a porta de entrada perfeita.",
+      },
+      {
+        type: "cta",
+        title: "Lâmpada Smart Positivo — casa inteligente por menos de R$ 40",
+        text: "Oferta relâmpago — preço mais baixo do mês. Pode acabar a qualquer momento.",
+        buttonLabel: "Ver oferta na Amazon",
+        store: "amazon",
+        link: "https://www.amazon.com.br/L%C3%A2mpada-Positivo-Casa-Inteligente-Compat%C3%ADvel/dp/B082FTRR76?th=1&linkCode=ll2&tag=tecnocheap05-20&linkId=4333064ec35a8cbb408c8a39bf5b8176&ref_=as_li_ss_tl",
+        image: "https://images.kabum.com.br/produtos/fotos/392827/lampada-smart-positivo-wi-fi-branco-e-colorida-rgb-9w-bivolt-alexa-google-preto_1663786550_m.jpg",
+      },
+      {
+        type: "heading",
+        text: "Tomada Smart Intelbras IHT 2100 — o item que parece simples mas faz diferença",
+      },
+      {
+        type: "paragraph",
+        text: "A tomada inteligente da Intelbras transforma qualquer aparelho comum em smart. Liga/desliga por app ou comando de voz, 2 portas USB extras e monitoramento de energia.",
+      },
+      {
+        type: "list",
+        items: [
+          "Controle liga/desliga por app, comando de voz ou cronograma",
+          "2 portas USB adicionais na própria tomada",
+          "Monitoramento de consumo de energia",
+          "Instalação: conecta na parede e pronto",
+          "Compatível com Alexa e Google Assistente",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "A IHT 2100 é o tipo de item que você compra, instala em 30 segundos, e depois de uma semana não consegue mais imaginar a vida sem.",
+      },
+      {
+        type: "cta",
+        title: "Tomada Intelbras IHT 2100 — com 2 portas USB",
+        text: "Oferta promocional — a partir de hoje com preço especial. Valor pode subir sem aviso.",
+        buttonLabel: "Ver oferta na Amazon",
+        store: "amazon",
+        link: "https://www.amazon.com.br/Tomada-Inteligente-Wi-FI-Intelbras-Preto/dp/B0GPXB3MQM?source=ps-sl-shoppingads-lpcontext&psc=1&smid=A1ZZFT5FULY4LN&linkCode=ll2&tag=tecnocheap05-20&linkId=5fddad4b515fa3979bede2ed7c035ed9&ref_=as_li_ss_tl",
+        image: "https://images.kabum.com.br/produtos/fotos/360075/tomada-inteligente-intelbras-iht-2100-wi-fi-2-entradas-usb-alexa-google-assistente-branca_1651841934_m.jpg",
+      },
+      {
+        type: "heading",
+        text: "Por onde começar?",
+      },
+      {
+        type: "paragraph",
+        text: "Casa inteligente não precisa ser um projeto — pode começar com um item só, testar por uma semana e expandir.",
+      },
+      {
+        type: "list",
+        items: [
+          "Primeiro item: lâmpada smart (R$ 30-50)",
+          "Segundo item: tomada smart com USB (R$ 60-100)",
+          "Terceiro item: câmera 360 (R$ 100-160)",
+          "Total do kit básico: menos de R$ 300",
+        ],
+      },
+      {
+        type: "quote",
+        text: "Casa inteligente não é sobre ter a casa mais tecnológica do bairro — é sobre as pequenas coisas do dia a dia que passam a funcionar automaticamente e você nem percebe.",
+      },
+    ],
+  },
 ];
 
 /* ============================================================

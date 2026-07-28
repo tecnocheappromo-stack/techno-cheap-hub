@@ -670,7 +670,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver oferta",
         store: "amazon",
         link: "https://www.amazon.com.br/Cancelamento-W820NB-Bluetooth-OVER-EAR-EDIFIER/dp/B09MDC77QX?tag=tecnocheap05-20&linkCode=ll2",
-        image: "https://images4.kabum.com.br/produtos/fotos/sync_mirakl/993894/xlarge/Power-Bank-Baseus-Turbo-Bipow-2-Pro-Com-Display-Digital-E-Cabo-Embutido-20-000mah-22-5w-Cor-Preto_1766410428.jpg",
+        image: "https://m.media-amazon.com/images/I/41S8sd4HNTL._AC_SX679_.jpg",
       },
       {
         type: "heading",

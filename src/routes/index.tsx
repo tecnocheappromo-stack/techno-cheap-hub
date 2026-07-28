@@ -22,6 +22,7 @@ import {
 import {
   ICONS,
   SITE_LINKS,
+  STORES,
   getCategories,
   getHighlights,
   safeHref,

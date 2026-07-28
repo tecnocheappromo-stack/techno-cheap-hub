@@ -1,8 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useState } from "react";
 import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
 import { ICONS, STORES, safeHref, validateLink } from "@/config/categories";
-import { ARTICLE_CATEGORIES, getArticleBySlug, type Article, type ArticleBlock } from "@/config/articles";
+import { ARTICLE_CATEGORIES, getArticleBySlug, getArticles, type Article, type ArticleBlock } from "@/config/articles";
 
 export const Route = createFileRoute("/artigos/$slug")({
   loader: ({ params }) => {
@@ -52,29 +51,6 @@ function ArticleNotFound() {
   );
 }
 
-/** Imagem que some sozinha (sem quebrar o layout) se o link parar de funcionar. */
-function SafeImage({
-  src,
-  alt,
-  className,
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-}) {
-  const [failed, setFailed] = useState(false);
-  if (failed) return null;
-  return (
-    <img
-      src={src}
-      alt={alt}
-      loading="lazy"
-      onError={() => setFailed(true)}
-      className={className}
-    />
-  );
-}
-
 function Block({ block }: { block: ArticleBlock }) {
   switch (block.type) {
     case "heading":
@@ -97,21 +73,6 @@ function Block({ block }: { block: ArticleBlock }) {
           {block.text}
         </blockquote>
       );
-    case "image":
-      return (
-        <figure className="my-6">
-          <SafeImage
-            src={block.url}
-            alt={block.alt}
-            className="w-full rounded-3xl border border-border object-cover"
-          />
-          {block.caption && (
-            <figcaption className="mt-2 text-xs text-muted-foreground text-center">
-              {block.caption}
-            </figcaption>
-          )}
-        </figure>
-      );
     case "cta": {
       const store = STORES[block.store];
       const v = validateLink(block.link, block.store);
@@ -120,13 +81,6 @@ function Block({ block }: { block: ArticleBlock }) {
           className="my-8 rounded-3xl p-6 text-white"
           style={{ background: store.gradientVar, boxShadow: "var(--shadow-glow-sm)" }}
         >
-          {block.image && (
-            <SafeImage
-              src={block.image}
-              alt={block.title}
-              className="w-full max-h-64 object-contain rounded-2xl bg-white/10 mb-4"
-            />
-          )}
           <span className="text-[10px] font-bold uppercase tracking-wider bg-white/20 px-2.5 py-1 rounded-full">
             {store.label}
           </span>
@@ -155,6 +109,57 @@ function Block({ block }: { block: ArticleBlock }) {
     default:
       return null;
   }
+}
+
+function RelatedArticles({ current }: { current: Article }) {
+  const others = getArticles().filter((a) => a.slug !== current.slug);
+  if (others.length === 0) return null;
+  const related = others.slice(0, 3);
+  return (
+    <section className="mt-16 pt-12 border-t border-border">
+      <h2 className="text-2xl font-black text-foreground mb-8">Artigos relacionados</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        {related.map((article) => {
+          const Icon = ICONS[article.coverIcon];
+          const cat = ARTICLE_CATEGORIES[article.category];
+          return (
+            <Link
+              key={article.slug}
+              to="/artigos/$slug"
+              params={{ slug: article.slug }}
+              className="group flex flex-col p-5 sm:p-6 rounded-3xl bg-card border border-border md:transition-all md:duration-300 md:hover:-translate-y-1.5 md:hover:shadow-lg"
+              style={{ boxShadow: "var(--shadow-card)" }}
+            >
+              <div
+                className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4"
+                style={{ background: "var(--gradient-icon)" }}
+              >
+                <Icon size={20} className="text-white" />
+              </div>
+              <span
+                className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full w-fit ${cat.badgeClass}`}
+              >
+                {cat.label}
+              </span>
+              <h3 className="font-bold text-lg text-foreground leading-tight mt-2">{article.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">
+                {article.description}
+              </p>
+              <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
+                <span className="inline-flex items-center gap-1">
+                  <Clock size={12} /> {article.readTimeMinutes} min de leitura
+                </span>
+              </div>
+              <div className="mt-4 inline-flex items-center gap-2 font-semibold text-sm text-primary md:group-hover:gap-3 md:transition-all">
+                Ler artigo
+                <ArrowRight size={16} className="md:transition-transform md:group-hover:translate-x-0.5" />
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+    </section>
+  );
 }
 
 function ArticlePage() {
@@ -215,6 +220,8 @@ function ArticlePage() {
             <ArrowLeft size={16} /> Ver todos os artigos
           </Link>
         </div>
+
+        <RelatedArticles current={article} />
       </main>
 
       <footer className="border-t border-border py-8 text-center">

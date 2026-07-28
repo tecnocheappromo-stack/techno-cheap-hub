@@ -14,7 +14,9 @@ import {
   TrendingUp,
   Package,
   MessageCircle,
+  BookOpen,
   Bot,
+  Clock,
   type LucideIcon,
 } from "lucide-react";
 import {
@@ -26,6 +28,7 @@ import {
   validateLink,
   type Category,
 } from "@/config/categories";
+import { getArticles, ARTICLE_CATEGORIES } from "@/config/articles";
 import { AdminPanel } from "@/components/AdminPanel";
 import { useLinkOverrides } from "@/hooks/use-link-overrides";
 import { trackEvent } from "@/lib/analytics";
@@ -382,6 +385,76 @@ function Index() {
               {highlights.map((h) => (
                 <HighlightCard key={h.id} category={h} />
               ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* BLOG ARTICLES */}
+      {getArticles().length > 0 && (
+        <section className="border-t border-border py-16 md:py-24">
+          <div className="max-w-6xl mx-auto px-5">
+            <div className="text-center mb-12">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-shopee mb-3">
+                <BookOpen size={14} /> Blog
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-foreground">
+                Artigos e guias
+              </h2>
+              <p className="mt-3 text-muted-foreground max-w-md mx-auto text-base leading-relaxed">
+                Dicas, reviews e comparativos para ajudar na sua escolha.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+              {getArticles().slice(0, 3).map((article) => {
+                const Icon = ICONS[article.coverIcon];
+                const cat = ARTICLE_CATEGORIES[article.category];
+                return (
+                  <Link
+                    key={article.slug}
+                    to="/artigos/$slug"
+                    params={{ slug: article.slug }}
+                    className="group flex flex-col p-5 sm:p-6 rounded-3xl bg-card border border-border md:transition-all md:duration-300 md:hover:-translate-y-1.5 md:hover:shadow-lg"
+                    style={{ boxShadow: "var(--shadow-card)" }}
+                  >
+                    <div
+                      className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4"
+                      style={{ background: "var(--gradient-icon)" }}
+                    >
+                      <Icon size={20} className="text-white" />
+                    </div>
+                    <span
+                      className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full w-fit ${cat.badgeClass}`}
+                    >
+                      {cat.label}
+                    </span>
+                    <h3 className="font-bold text-lg text-foreground leading-tight mt-2">{article.title}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">
+                      {article.description}
+                    </p>
+                    <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
+                      <span className="inline-flex items-center gap-1">
+                        <Clock size={12} /> {article.readTimeMinutes} min de leitura
+                      </span>
+                    </div>
+                    <div className="mt-4 inline-flex items-center gap-2 font-semibold text-sm text-primary md:group-hover:gap-3 md:transition-all">
+                      Ler artigo
+                      <ArrowRight size={16} className="md:transition-transform md:group-hover:translate-x-0.5" />
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+            <div className="mt-10 text-center">
+              <Link
+                to="/artigos"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-sm border border-border bg-card hover:bg-secondary/40 md:transition-colors"
+                style={{ boxShadow: "var(--shadow-card)" }}
+              >
+                <BookOpen size={16} />
+                Ver todos os artigos
+                <ArrowRight size={16} />
+              </Link>
             </div>
           </div>
         </section>

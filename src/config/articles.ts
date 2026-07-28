@@ -193,6 +193,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver projetores em oferta",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3760310?view=storefront",
+        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/574975/medium/Mini-Projetor-Xgimi-MoGo-2-Pro-1080p-4k-400-Lumens-ISO-Androidd-tv-11-wi-fi-6-bluetooth-5-0-_1706809855.jpg",
       },
     ],
   },
@@ -385,7 +386,7 @@ export const ARTICLES: Article[] = [
         text: "Confira o preço atual e a disponibilidade.",
         buttonLabel: "Ver oferta",
         store: "amazon",
-        link: "https://link.amazon/B09cpIIoN",
+        link: "https://www.amazon.com.br/Logitech-SUPERLIGHT-Tecnologia-program%C3%A1veis-Recarreg%C3%A1vel/dp/B0CJ9NXG41?tag=tecnocheap05-20&linkCode=ll2",
         image: "https://img.terabyteshop.com.br/produto/m/mouse-gamer-logitech-g-pro-x-superlight-sem-fio-25400-dpi-sensor-hero-5-botoes-vermelho-910-006783_234449.jpg",
       },
       {
@@ -423,7 +424,7 @@ export const ARTICLES: Article[] = [
         text: "Confira o preço atual e a disponibilidade.",
         buttonLabel: "Ver oferta",
         store: "amazon",
-        link: "https://link.amazon/B0eWLthb0",
+        link: "https://www.amazon.com.br/Monitor-LG-UltraGear-DisplayPort-FreeSyncTM/dp/B0D8DPT7ZY?tag=tecnocheap05-20&linkCode=ll2",
         image: "https://images.kabum.com.br/produtos/fotos/614879/monitor-gamer-lg-ultragear-24-full-hd-ips-180hz-1ms-displayport-e-hdmi-nvidia-g-sync-amd-freesync-hdr10-srgb-99-24gs60f-b_1722881105_m.jpg",
       },
       {
@@ -436,7 +437,7 @@ export const ARTICLES: Article[] = [
         text: "Confira o preço atual e a disponibilidade.",
         buttonLabel: "Ver oferta",
         store: "amazon",
-        link: "https://link.amazon/B0bhGXXTL",
+        link: "https://meli.la/2Q1CXfk",
         image: "https://images.kabum.com.br/produtos/fotos/magalu/459198/Monitor-Gamer-Samsung-Odyssey-G30-24-Full-HD_1682704439_m.jpg",
       },
       {
@@ -493,6 +494,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver fones",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3766799?view=storefront",
+        image: "https://img.terabyteshop.com.br/produto/m/fone-de-ouvido-sem-fio-qcy-t13-tws-bluetooth-5-1-branco_170629.jpg",
       },
       {
         type: "heading",
@@ -542,6 +544,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver projetores",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3760310?view=storefront",
+        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/574975/medium/Mini-Projetor-Xgimi-MoGo-2-Pro-1080p-4k-400-Lumens-ISO-Androidd-tv-11-wi-fi-6-bluetooth-5-0-_1706809855.jpg",
       },
       {
         type: "heading",
@@ -574,6 +577,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver tablets",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3841978?view=storefront",
+        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/871509/medium/Tablet-Samsung-Galaxy-Tab-A9-64gb-Wi-fi-4gb-Ram-Tela-8-7-Androidd-13-Prata_1718735313.jpg",
       },
       {
         type: "heading",
@@ -598,6 +602,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver itens para casa",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3766803?view=storefront",
+        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/776337/medium/C-mera-Wi-fi-Intelbras-IMP-360-180-Resolu-o-2MP-Full-HD-360-ngulo-de-Vis-o-C-pula-Vis-o-Noturna-Gravacao-Em-Nuvem-Branca_1722539343.jpg",
       },
       {
         type: "heading",
@@ -665,7 +670,7 @@ export const ARTICLES: Article[] = [
         text: "Over-ear com ANC, 49h de bateria e codec LDAC.",
         buttonLabel: "Ver oferta",
         store: "mercadolivre",
-        link: "COLOCAR_LINK_AQUI",
+        link: "https://www.amazon.com.br/Cancelamento-W820NB-Bluetooth-OVER-EAR-EDIFIER/dp/B09MDC77QX?tag=tecnocheap05-20&linkCode=ll2",
         image: "https://images.kabum.com.br/produtos/fotos/510655/headphone-bluetooth-edifier-w820nb-plus-cancelamento-de-ruido-ativo-bluetooth-5-2-preto-w820nb-plus-bk_1705693994_m.jpg",
       },
       {
@@ -701,6 +706,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver fones Bluetooth",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3766799?view=storefront",
+        image: "https://img.terabyteshop.com.br/produto/m/fone-de-ouvido-sem-fio-edifier-w820nb-plus-cancelamento-de-ruido-ativo-branco_193980.jpg",
       },
       {
         type: "paragraph",
@@ -879,6 +885,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver carregadores",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3760315?view=storefront",
+        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/759742/medium/Carregador-Baseus-GaN-5-Pro-65W-2-USB-C-Preto-PD-3-0-QC-4-0-PPS-A-para-Notebook-Smartphone-e-Tablet_1713540478.jpg",
       },
       {
         type: "heading",
@@ -953,6 +960,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver acessórios",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3760315?view=storefront",
+        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/716544/medium/Smartphone-Xiaomi-Poco-X7-Pro-256gb-12gb-Ram-5g-Vers-o-Global-Nfc_1765458539.jpg",
       },
       {
         type: "heading",
@@ -1057,6 +1065,7 @@ export const ARTICLES: Article[] = [
         buttonLabel: "Ver ofertas Shopee",
         store: "shopee",
         link: "https://collshp.com/technocheap/category/3861778?view=storefront",
+        image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/734571/medium/Smartphone-Samsung-Galaxy-A56-128GB-Preto-5g-C-mera-Tripla-50mp-Ram-8GB-Tela-6-7-_1777055936.jpg",
       },
       {
         type: "cta",
